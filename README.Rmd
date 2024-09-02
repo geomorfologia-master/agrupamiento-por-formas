@@ -1,0 +1,199 @@
+---
+title: "Prácticas de aula 3 (PA03). Agrupar provincias según su formas predominantes<small><br>Geomorfología (GEO-114)<br>Universidad Autónoma de Santo Domingo (UASD)<br>Semestre 2024-02</small>"
+author: "El Tali"
+date: "`r format(Sys.Date(), '%Y-%m-%d')`"
+output:
+  bookdown::github_document2:
+    number_sections: false
+    fig_caption: yes
+  # bookdown::html_document2:
+  #   number_sections: false
+  #   code_folding: hide
+  #   fig_caption: yes
+  #   md_extensions: "-fancy_lists"
+  #   toc: true
+  #   toc_depth: 3
+editor_options: 
+  chunk_output_type: console
+always_allow_html: true
+bibliography: references.bib
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  warning = FALSE,
+  message = FALSE,
+  out.width = '100%',
+  fig.retina = 4)
+```
+
+```{r, include=F}
+output_format <- knitr::opts_knit$get("rmarkdown.pandoc.to")
+repo_url <- system("git config --get remote.origin.url", intern = TRUE)
+repo_name <- sub(".git$", "", basename(repo_url))
+org_name <- basename(dirname(repo_url))
+rmd_filename <- tools::file_path_sans_ext(basename(knitr::current_input()))
+github_pages_url <- paste0("https://", org_name, ".github.io/", repo_name, "/", rmd_filename, ".html")
+```
+
+```{r, results='asis', echo=F}
+if (grepl('gfm', output_format)) {
+  cat('Versión HTML (quizá más legible), [aquí](', github_pages_url, ')\n', sep = '')
+} else if (output_format == 'latex') {
+  cat('Versión HTML (quizá más legible), [aquí](', github_pages_url, ')\n', sep = '')
+}
+```
+
+# Fecha/hora de entrega
+
+**03 de septiembre de 2024, 7:59 pm.**
+
+# Introducción
+
+Qué son los DEM, cómo se obtienen, y qué importancia tienen (puedes citar a @hengl2008geomorphometry).
+
+Qué son las técnicas de clasificación de formas del terreno (e.g. los geomórfonos), que se basan en DEM, citando a @hengl2008geomorphometry, @jasiewicz2013geomorphons
+
+Qué son las técnicas de análisis de agrupamiento (UPGMA, etc), qué utilidad tienen @borcard_numerical_2018,
+
+Una vez clasificados los elementos, cómo estas clasificaciones podrían ayudar a caracterizar más fácilmente y con técnicas estadísticas, unidades convencionales o físicas (@triola2012estadistica parte estadística).
+
+Utilidad de la clasificación del relieve, qué problema se resuelve con ellos.
+
+Cómo se pueden agrupar unidades como provincias, regiones o municipios, en función de la distribución porcentual de formas del terreno usando UPGMA, usando los datos de @jose_ramon_martinez_batlle_2022_7367180.
+
+Qué aportes dan para el conjunto de la ciencia.
+
+# Ejercicio. Clasificar 6 provincias dominicanas según sus formas predominantes por el método de agrupamiento jerárquico aglomerativo promedio no ponderado (UPGMA)
+
+
+## Objetivo
+
+
+
+## Planteamiento del Problema
+
+Usando los datos de @jose_ramon_martinez_batlle_2022_7367180 ...
+
+## Obtención de los datos
+
+1. Cargar datos fuente. Los datos fuente proceden de @jose_ramon_martinez_batlle_2022_7367180.
+
+Primero, es necesario cargar paquetes.
+
+```{r}
+library(tidyverse)
+library(sf)
+library(tmap)
+```
+
+Luego leemos los datos.
+
+```{r}
+prov <- st_read('data/provincias-geomorfonos.gpkg', quiet = T) %>% 
+  rename(nombre = hex_id,
+         llanura = flat, pico = peak,
+         `cresta\n(interfluvio no inclinado)` = ridge, hombrera = shoulder,
+         `gajo\n(interfluvio inclinado)` = spur, vertiente = slope,
+         vaguada = hollow, piedemonte = footslope, valle = valley,
+         `depresión/sima` = pit)
+# Comprobar 100%
+# prov %>% st_drop_geometry() %>% select(-base, -nombre) %>% rowSums()
+```
+
+Una representación cartográfica te ayudará a ver el conjunto en el país.
+
+```{r}
+prov %>% select(-matches('base')) %>%
+  pivot_longer(names_to = 'variable', values_to = 'value', -c(geom, nombre)) %>%
+  tm_shape() +
+  tm_fill(col='value', palette = "-BrBG", size = 0.1, style = 'fisher', n = 3,
+          legend.is.portrait = T) +
+  tm_borders(col = 'grey15', lwd = 0.3) +
+  tm_facets(by = "variable", ncol = 3, nrow = 4, free.coords = FALSE, free.scales = TRUE) +
+  tm_layout(
+    panel.label.size = 1.5,
+    panel.label.height = 2,
+    legend.height = 0.3,
+    legend.text.color = 'black',
+    legend.width = 0.95,
+    legend.text.size = 1, 
+    legend.title.size = 0.001,
+    legend.position = c('right', 'bottom'), 
+    legend.frame = FALSE)
+```
+
+2. **Creación de los 10 conjuntos** (reserva el conjunto 1 al Tali). Se han creado diez conjuntos de seis provincias elegidas al azar utilizando sus nombres con el siguiente código de R (si no lo ves, presiona el botón `Show`).
+
+```{r}
+set.seed(123)
+replicas <- replicate(10, sample(prov$nombre, 6))
+df <- data.frame(Conjunto = 1:10, t(replicas))
+df %>%
+  unite("Provincias asignadas", X1:X6, sep = ", ") %>% 
+  knitr::kable()
+```
+
+
+3. **Presentación de los datos crudos de cada uno de los diez conjuntos**. Esta matriz contiene el porcentaje de la superifice provincial ocupada por cada forma del terreno. Con esta matriz podrás hacer cálculos de distancias.
+
+```{r}
+conjuntos_l <- sapply(1:ncol(replicas),
+       function(x)
+         prov %>%
+         select(-base) %>% 
+         filter(nombre %in% replicas[, x]) %>% st_drop_geometry(),
+       simplify = F) %>%
+  setNames(paste0('Conjunto ', 1:10))
+```
+
+
+```{r, results='asis'}
+sapply(conjuntos_l,
+       knitr::kable,
+       digits = 2,
+       format = ifelse(grepl('gfm', output_format), 'markdown', 'html'),
+       simplify = F)
+```
+
+4. **Generación de la matriz de distancias de cada uno de los diez conjuntos**. Esta es la matriz de distancias con la que podrás realizar el agrupamiento jerárquico UPGMA, y podrás comprobar tus cálculos de distancias seleccionados.
+
+
+```{r}
+# Mostrar la tabla generada
+# sapply(conjuntos_par, knitr::kable(conjuntos_par))
+# knitr::kable(data)
+```
+
+## **Mandato**.
+
+> Ten presente un aspecto importante. El Tali te provee la matriz de distancias entre los 15 pares posibles para que realices el agrupamiento. Sin embargo, el Tali también te pide, en el punto 1. que, a modo de prueba, calcules la distancia euclidiana para dos pares de provincias elegidos al azar de entre los 15 posibles. Más detalles abajo.
+
+1. Usando los datos generados a partir de @jose_ramon_martinez_batlle_2022_7367180, para el conjunto que te tocó, obtén la distancia euclidiana entre dos pares de provincias elegidos por ti al azar (par A y par B), de los 15 posibles que tiene tu matriz de distancias. Haz este cálculo usando todas las dimensiones disponibles (diez en total). Ten presente que, para incluir las diez dimensiones, deberás usar la fórmula provista, la cual considera un espacio n-dimensional. Es recomendable que, para los cálculos, redondees a dos cifras significativas. Esto tiene doble propósito: a) Comprobar la precisión del algoritmo distancias; b) Medir tu rendimiento calculando distancias en un n-dimensional.
+
+2. Aplica el método de agrupamiento jerárquico aglomerativo promedio no ponderado (UPGMA) para agrupar las provincias según sus formas predominantes, usando la matriz de distancias provista.
+
+3. Redacta, en un máximo de cuatro párrafos, lo siguiente:
+
+  - Introducción, en el que podrías incluir importancia del ejercicio, objetivo, justificación.
+  - Materiales y métodos, donde resumas que materiales usaste (esto incluye hasta el teléfono móvil, papel, lápiz, etc.), y las técnicas específicas empleadas, que en tu caso son la distancia y el método de agrupamiento enseñado.
+  - Resultado, lo cual supone describir, fríamente, lo que obtuviste.
+  - Discusión, donde indiques si alcanzaste el objetivo, interpretes el resultado, indiques las limitaciones y los posibles trabajos futuros.
+
+# Ejemplo práctico
+
+
+
+
+# ¿Cómo se haría el ejemplo práctico en R?
+
+```{r, eval = F, echo = T}
+
+```
+
+**Nota**: los cálculos se pueden realizar a mano o con una calculadora del teléfono, utilizando las fórmulas proporcionadas.
+
+
+## Referencias
+
