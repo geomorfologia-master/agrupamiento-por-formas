@@ -139,14 +139,18 @@ conjuntos_l <- sapply(1:ncol(replicas),
 ```
 
 ``` r
-sapply(conjuntos_l,
-       knitr::kable,
-       digits = 2,
-       format = ifelse(grepl('gfm', output_format), 'markdown', 'html'),
-       simplify = F)
+# Imprimir las tablas
+for (tabla in 1:length(conjuntos_l)) {
+  cat('Conjunto', tabla, "\n")
+  print(kableExtra::kable(
+    conjuntos_l[[tabla]],
+    format = ifelse(grepl('gfm', output_format), 'markdown', 'html'),
+    digits = 2))
+  cat("\n\n")
+}
 ```
 
-\$`Conjunto 1`
+Conjunto 1
 
 \|nombre \| llanura\| depresión/sima\| pico\| cresta (interfluvio no
 inclinado)\| hombrera\| gajo (interfluvio inclinado)\| vertiente\|
@@ -162,7 +166,7 @@ vaguada\| piedemonte\| valle\|
 1.26\| 0.61\| 1.09\| 12.12\| 0.23\| 19.83\| 32.97\| 17.98\| 0.61\|
 13.31\|
 
-\$`Conjunto 2`
+Conjunto 2
 
 \|nombre \| llanura\| depresión/sima\| pico\| cresta (interfluvio no
 inclinado)\| hombrera\| gajo (interfluvio inclinado)\| vertiente\|
@@ -177,7 +181,7 @@ PLATA \| 9.65\| 0.39\| 1.29\| 10.45\| 1.42\| 14.86\| 34.59\| 13.40\|
 27.97\| 11.74\| 2.76\| 11.09\| \|SAN JUAN \| 8.78\| 0.28\| 0.81\| 9.04\|
 2.16\| 16.24\| 35.09\| 14.39\| 3.51\| 9.71\|
 
-\$`Conjunto 3`
+Conjunto 3
 
 \|nombre \| llanura\| depresión/sima\| pico\| cresta (interfluvio no
 inclinado)\| hombrera\| gajo (interfluvio inclinado)\| vertiente\|
@@ -192,7 +196,7 @@ vaguada\| piedemonte\| valle\|
 16.71\| 31.13\| 15.37\| 2.66\| 14.19\| \|VALVERDE \| 27.87\| 0.16\|
 0.57\| 6.40\| 5.58\| 9.62\| 27.76\| 8.16\| 7.62\| 6.25\|
 
-\$`Conjunto 4`
+Conjunto 4
 
 \|nombre \| llanura\| depresión/sima\| pico\| cresta (interfluvio no
 inclinado)\| hombrera\| gajo (interfluvio inclinado)\| vertiente\|
@@ -207,7 +211,7 @@ vaguada\| piedemonte\| valle\|
 31.41\| 15.01\| 2.82\| 10.52\| \|SAN JOSÉ DE OCOA \| 1.26\| 0.61\|
 1.09\| 12.12\| 0.23\| 19.83\| 32.97\| 17.98\| 0.61\| 13.31\|
 
-\$`Conjunto 5`
+Conjunto 5
 
 \|nombre \| llanura\| depresión/sima\| pico\| cresta (interfluvio no
 inclinado)\| hombrera\| gajo (interfluvio inclinado)\| vertiente\|
@@ -223,7 +227,7 @@ vaguada\| piedemonte\| valle\|
 1.99\| 0.76\| 1.33\| 13.25\| 2.62\| 16.71\| 31.13\| 15.37\| 2.66\|
 14.19\|
 
-\$`Conjunto 6`
+Conjunto 6
 
 \|nombre \| llanura\| depresión/sima\| pico\| cresta (interfluvio no
 inclinado)\| hombrera\| gajo (interfluvio inclinado)\| vertiente\|
@@ -238,7 +242,7 @@ TRINIDAD SÁNCHEZ \| 32.33\| 0.45\| 0.83\| 7.86\| 4.40\| 9.28\| 23.75\|
 13.79\| 28.75\| 12.33\| 4.89\| 9.59\| \|SAN CRISTÓBAL \| 5.57\| 0.60\|
 1.15\| 12.12\| 1.90\| 16.60\| 31.10\| 15.15\| 3.14\| 12.68\|
 
-\$`Conjunto 7`
+Conjunto 7
 
 \|nombre \| llanura\| depresión/sima\| pico\| cresta (interfluvio no
 inclinado)\| hombrera\| gajo (interfluvio inclinado)\| vertiente\|
@@ -253,7 +257,7 @@ ROMANA \| 57.78\| 0.29\| 0.11\| 3.23\| 9.67\| 2.92\| 11.74\| 2.70\|
 28.01\| 14.83\| 1.41\| 11.87\| \|MONTE CRISTI \| 43.73\| 0.07\| 0.54\|
 5.62\| 4.67\| 7.16\| 20.45\| 6.02\| 6.81\| 4.93\|
 
-\$`Conjunto 8`
+Conjunto 8
 
 \|nombre \| llanura\| depresión/sima\| pico\| cresta (interfluvio no
 inclinado)\| hombrera\| gajo (interfluvio inclinado)\| vertiente\|
@@ -268,7 +272,7 @@ vaguada\| piedemonte\| valle\|
 5.58\| 9.62\| 27.76\| 8.16\| 7.62\| 6.25\| \|MONSEÑOR NOUEL \| 10.32\|
 0.40\| 0.82\| 10.14\| 1.45\| 17.09\| 31.41\| 15.01\| 2.82\| 10.52\|
 
-\$`Conjunto 9`
+Conjunto 9
 
 \|nombre \| llanura\| depresión/sima\| pico\| cresta (interfluvio no
 inclinado)\| hombrera\| gajo (interfluvio inclinado)\| vertiente\|
@@ -283,7 +287,7 @@ vaguada\| piedemonte\| valle\|
 32.15\| 15.95\| 2.08\| 12.18\| \|VALVERDE \| 27.87\| 0.16\| 0.57\|
 6.40\| 5.58\| 9.62\| 27.76\| 8.16\| 7.62\| 6.25\|
 
-\$`Conjunto 10`
+Conjunto 10
 
 \|nombre \| llanura\| depresión/sima\| pico\| cresta (interfluvio no
 inclinado)\| hombrera\| gajo (interfluvio inclinado)\| vertiente\|
@@ -297,6 +301,14 @@ vaguada\| piedemonte\| valle\|
 \|PUERTO PLATA \| 9.65\| 0.39\| 1.29\| 10.45\| 1.42\| 14.86\| 34.59\|
 13.40\| 3.30\| 10.65\| \|MONTE PLATA \| 16.44\| 1.51\| 1.76\| 11.38\|
 6.24\| 11.15\| 23.44\| 9.95\| 5.52\| 12.61\|
+
+``` r
+# sapply(conjuntos_l,
+#        knitr::kable,
+#        digits = 2,
+#        format = ifelse(grepl('gfm', output_format), 'markdown', 'html'),
+#        simplify = F)
+```
 
 4.  **Generación de la matriz de distancias de cada uno de los diez
     conjuntos**. Esta es la matriz de distancias con la que podrás

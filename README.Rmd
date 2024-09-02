@@ -3,16 +3,16 @@ title: "Prácticas de aula 3 (PA03). Agrupar provincias según su formas predomi
 author: "El Tali"
 date: "`r format(Sys.Date(), '%Y-%m-%d')`"
 output:
-  bookdown::github_document2:
-    number_sections: false
-    fig_caption: yes
-  # bookdown::html_document2:
+  # bookdown::github_document2:
   #   number_sections: false
-  #   code_folding: hide
   #   fig_caption: yes
-  #   md_extensions: "-fancy_lists"
-  #   toc: true
-  #   toc_depth: 3
+  bookdown::html_document2:
+    number_sections: false
+    code_folding: hide
+    fig_caption: yes
+    md_extensions: "-fancy_lists"
+    toc: true
+    toc_depth: 3
 editor_options: 
   chunk_output_type: console
 always_allow_html: true
@@ -150,11 +150,21 @@ conjuntos_l <- sapply(1:ncol(replicas),
 
 
 ```{r, results='asis'}
-sapply(conjuntos_l,
-       knitr::kable,
-       digits = 2,
-       format = ifelse(grepl('gfm', output_format), 'markdown', 'html'),
-       simplify = F)
+# Imprimir las tablas
+for (tabla in 1:length(conjuntos_l)) {
+  cat('Conjunto', tabla, "\n")
+  print(kableExtra::kable(
+    conjuntos_l[[tabla]],
+    format = ifelse(grepl('gfm', output_format), 'markdown', 'html'),
+    digits = 2))
+  cat("\n\n")
+}
+
+# sapply(conjuntos_l,
+#        knitr::kable,
+#        digits = 2,
+#        format = ifelse(grepl('gfm', output_format), 'markdown', 'html'),
+#        simplify = F)
 ```
 
 4. **Generación de la matriz de distancias de cada uno de los diez conjuntos**. Esta es la matriz de distancias con la que podrás realizar el agrupamiento jerárquico UPGMA, y podrás comprobar tus cálculos de distancias seleccionados.
