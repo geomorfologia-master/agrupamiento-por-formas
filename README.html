@@ -457,7 +457,10 @@ display: none;
 <div id="TOC">
 <ul>
 <li><a href="#fechahora-de-entrega" id="toc-fechahora-de-entrega">Fecha/hora de entrega</a></li>
-<li><a href="#introducción" id="toc-introducción">Introducción</a></li>
+<li><a href="#introducción" id="toc-introducción">Introducción</a>
+<ul>
+<li><a href="#introducción-1" id="toc-introducción-1">Introducción</a></li>
+</ul></li>
 <li><a href="#ejercicio.-clasificar-6-provincias-dominicanas-según-sus-formas-predominantes-por-el-método-de-agrupamiento-jerárquico-aglomerativo-promedio-no-ponderado-upgma" id="toc-ejercicio.-clasificar-6-provincias-dominicanas-según-sus-formas-predominantes-por-el-método-de-agrupamiento-jerárquico-aglomerativo-promedio-no-ponderado-upgma">Ejercicio. Clasificar 6 provincias dominicanas según sus formas predominantes por el método de agrupamiento jerárquico aglomerativo promedio no ponderado (UPGMA)</a>
 <ul>
 <li><a href="#objetivo" id="toc-objetivo">Objetivo</a></li>
@@ -479,22 +482,31 @@ display: none;
 </div>
 <div id="introducción" class="section level1">
 <h1>Introducción</h1>
-<p>Qué son los DEM, cómo se obtienen, y qué importancia tienen (puedes citar a <span class="citation">Hengl and Reuter (2008)</span>).</p>
-<p>Qué son las técnicas de clasificación de formas del terreno (e.g. los geomórfonos), que se basan en DEM, citando a <span class="citation">Hengl and Reuter (2008)</span>, <span class="citation">Jasiewicz and Stepinski (2013)</span></p>
-<p>Qué son las técnicas de análisis de agrupamiento (UPGMA, etc), qué utilidad tienen <span class="citation">Borcard, Gillet, and Legendre (2018)</span>,</p>
-<p>Una vez clasificados los elementos, cómo estas clasificaciones podrían ayudar a caracterizar más fácilmente y con técnicas estadísticas, unidades convencionales o físicas (<span class="citation">Triola (2012)</span> parte estadística).</p>
-<p>Utilidad de la clasificación del relieve, qué problema se resuelve con ellos.</p>
-<p>Cómo se pueden agrupar unidades como provincias, regiones o municipios, en función de la distribución porcentual de formas del terreno usando UPGMA, usando los datos de <span class="citation">Martínez-Batlle (2022)</span>.</p>
-<p>Qué aportes dan para el conjunto de la ciencia.</p>
+<!-- Qué son los DEM, cómo se obtienen, y qué importancia tienen (puedes citar a @hengl2008geomorphometry). -->
+<!-- Qué son las técnicas de clasificación de formas del terreno (e.g. los geomórfonos), que se basan en DEM, citando a @hengl2008geomorphometry, @jasiewicz2013geomorphons -->
+<!-- Qué son las técnicas de análisis de agrupamiento (UPGMA, etc), qué utilidad tienen @borcard_numerical_2018, -->
+<!-- Una vez clasificados los elementos, cómo estas clasificaciones podrían ayudar a caracterizar más fácilmente y con técnicas estadísticas, unidades convencionales o físicas (@triola2012estadistica parte estadística). -->
+<!-- Utilidad de la clasificación del relieve, qué problema se resuelve con ellos. -->
+<!-- Cómo se pueden agrupar unidades como provincias, regiones o municipios, en función de la distribución porcentual de formas del terreno usando UPGMA, usando los datos de @jose_ramon_martinez_batlle_2022_7367180. -->
+<!-- Qué aportes dan para el conjunto de la ciencia. -->
+<div id="introducción-1" class="section level3">
+<h3>Introducción</h3>
+<p>Los Modelos Digitales de Elevación (DEM, por sus siglas en inglés) son representaciones digitales del relieve terrestre, obtenidas a partir de diversos métodos, como el levantamiento topográfico, la teledetección o el uso de sistemas de información geográfica (SIG) que permiten modelar la superficie del terreno en tres dimensiones. Los DEM son fundamentales en geomorfología y otras ciencias de la Tierra, ya que facilitan el análisis de formas del relieve y ayudan a identificar patrones geomorfológicos mediante técnicas cuantitativas <span class="citation">(Hengl and Reuter 2008)</span>.</p>
+<p>Las técnicas de clasificación de formas del terreno, como los geomórfonos, se basan en la información proporcionada por los DEM para identificar y categorizar características del relieve. Estas técnicas permiten diferenciar unidades geomorfológicas y facilitan la comprensión de la distribución espacial de las formas del terreno, proporcionando una base sólida para análisis más detallados en estudios geográficos y geológicos <span class="citation">(Hengl and Reuter 2008; Jasiewicz and Stepinski 2013)</span>.</p>
+<p>El análisis de agrupamiento, como el método de agrupamiento jerárquico aglomerativo promedio no ponderado (UPGMA), se utiliza para clasificar elementos en grupos homogéneos en función de sus características, facilitando la identificación de patrones y relaciones entre diferentes unidades territoriales. Este método es útil en diversos campos, desde la biología hasta la geografía, para agrupar elementos con características similares <span class="citation">(Borcard, Gillet, and Legendre 2018)</span>.</p>
+<p>Una vez clasificadas las unidades geomorfológicas, como provincias o regiones, estas clasificaciones pueden facilitar su caracterización mediante técnicas estadísticas, simplificando la comparación y el análisis de unidades convencionales o físicas <span class="citation">(Triola 2012)</span>. La utilidad de estas clasificaciones radica en que permiten resolver problemas como la identificación de zonas vulnerables a desastres naturales, la planificación del uso del suelo y la conservación ambiental, entre otros. Por ejemplo, las provincias de la República Dominicana pueden agruparse según la distribución porcentual de formas del terreno utilizando el método UPGMA, lo que proporciona una perspectiva científica valiosa para diversos estudios geográficos y ambientales <span class="citation">(Martínez-Batlle 2022)</span>.</p>
+<p>En resumen, las técnicas de clasificación y agrupamiento de formas del terreno no solo contribuyen a la ciencia al facilitar la comprensión del paisaje, sino que también aportan herramientas prácticas para la gestión del territorio y la planificación ambiental.</p>
+</div>
 </div>
 <div id="ejercicio.-clasificar-6-provincias-dominicanas-según-sus-formas-predominantes-por-el-método-de-agrupamiento-jerárquico-aglomerativo-promedio-no-ponderado-upgma" class="section level1">
 <h1>Ejercicio. Clasificar 6 provincias dominicanas según sus formas predominantes por el método de agrupamiento jerárquico aglomerativo promedio no ponderado (UPGMA)</h1>
 <div id="objetivo" class="section level2">
 <h2>Objetivo</h2>
+<p>Agrupar las provincias de la República Dominicana según sus formas predominantes del terreno utilizando el método de agrupamiento jerárquico aglomerativo promedio no ponderado (UPGMA), con el fin de identificar patrones geomorfológicos comunes y diferenciar unidades territoriales en función de su distribución porcentual de formas del terreno.</p>
 </div>
 <div id="planteamiento-del-problema" class="section level2">
 <h2>Planteamiento del Problema</h2>
-<p>Usando los datos de <span class="citation">Martínez-Batlle (2022)</span> …</p>
+<p>Se dispone de un conjunto de datos de <span class="citation">Martínez-Batlle (2022)</span>, que describe la distribución porcentual de las formas del terreno en diferentes provincias de la República Dominicana, basado en un modelo digital de elevación (DEM) y clasificaciones de formas del terreno usando geomórfonos <span class="citation">(Jasiewicz and Stepinski 2013)</span>. Se busca utilizar estos datos para realizar un agrupamiento de las provincias según sus características geomorfológicas predominantes, aplicando el método de agrupamiento jerárquico UPGMA. Este agrupamiento permitirá identificar similitudes y diferencias entre las provincias, facilitando el análisis y la comprensión de los patrones del relieve a nivel regional.</p>
 </div>
 <div id="obtención-de-los-datos" class="section level2">
 <h2>Obtención de los datos</h2>
@@ -606,2567 +618,1248 @@ df %&gt;%
          select(-base) %&gt;% 
          filter(nombre %in% replicas[, x]) %&gt;% st_drop_geometry(),
        simplify = F) %&gt;%
-  setNames(paste0(&#39;Conjunto &#39;, 1:10))</code></pre>
-<pre class="r"><code># Imprimir las tablas
-for (tabla in 1:length(conjuntos_l)) {
-  cat(&#39;Conjunto&#39;, tabla, &quot;\n&quot;)
-  print(kableExtra::kable(
-    conjuntos_l[[tabla]],
-    format = ifelse(grepl(&#39;gfm&#39;, output_format), &#39;markdown&#39;, &#39;html&#39;),
-    digits = 2))
+  setNames(paste0(&#39;Conjunto &#39;, 1:10))
+conjuntos_l_k &lt;- lapply(
+  conjuntos_l,
+  function(x) {
+    colnames(x) &lt;- gsub(&#39;\\n&#39;, &#39;&#39;, colnames(x))
+    knitr::kable(x, digits = 2, align = &#39;c&#39;)
+    })</code></pre>
+<pre class="r"><code># Imprimir tablas
+for (tabla in 1:length(conjuntos_l_k)) {
+  cat(&#39;Conjunto&#39;, tabla, &quot;\n\n&quot;)
+  print(conjuntos_l_k[[tabla]])
   cat(&quot;\n\n&quot;)
 }</code></pre>
-Conjunto 1
+<p>Conjunto 1</p>
 <table>
+<colgroup>
+<col width="14%" />
+<col width="5%" />
+<col width="9%" />
+<col width="3%" />
+<col width="20%" />
+<col width="5%" />
+<col width="17%" />
+<col width="6%" />
+<col width="5%" />
+<col width="7%" />
+<col width="4%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-nombre
-</th>
-<th style="text-align:right;">
-llanura
-</th>
-<th style="text-align:right;">
-depresión/sima
-</th>
-<th style="text-align:right;">
-pico
-</th>
-<th style="text-align:right;">
-cresta
-(interfluvio no inclinado)
-</th>
-<th style="text-align:right;">
-hombrera
-</th>
-<th style="text-align:right;">
-gajo
-(interfluvio inclinado)
-</th>
-<th style="text-align:right;">
-vertiente
-</th>
-<th style="text-align:right;">
-vaguada
-</th>
-<th style="text-align:right;">
-piedemonte
-</th>
-<th style="text-align:right;">
-valle
-</th>
+<tr class="header">
+<th align="center">nombre</th>
+<th align="center">llanura</th>
+<th align="center">depresión/sima</th>
+<th align="center">pico</th>
+<th align="center">cresta(interfluvio no inclinado)</th>
+<th align="center">hombrera</th>
+<th align="center">gajo(interfluvio inclinado)</th>
+<th align="center">vertiente</th>
+<th align="center">vaguada</th>
+<th align="center">piedemonte</th>
+<th align="center">valle</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-BAORUCO
-</td>
-<td style="text-align:right;">
-28.09
-</td>
-<td style="text-align:right;">
-0.18
-</td>
-<td style="text-align:right;">
-0.61
-</td>
-<td style="text-align:right;">
-6.66
-</td>
-<td style="text-align:right;">
-1.54
-</td>
-<td style="text-align:right;">
-12.39
-</td>
-<td style="text-align:right;">
-29.65
-</td>
-<td style="text-align:right;">
-10.87
-</td>
-<td style="text-align:right;">
-2.60
-</td>
-<td style="text-align:right;">
-7.41
-</td>
+<tr class="odd">
+<td align="center">BAORUCO</td>
+<td align="center">28.09</td>
+<td align="center">0.18</td>
+<td align="center">0.61</td>
+<td align="center">6.66</td>
+<td align="center">1.54</td>
+<td align="center">12.39</td>
+<td align="center">29.65</td>
+<td align="center">10.87</td>
+<td align="center">2.60</td>
+<td align="center">7.41</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-INDEPENDENCIA
-</td>
-<td style="text-align:right;">
-20.53
-</td>
-<td style="text-align:right;">
-0.26
-</td>
-<td style="text-align:right;">
-0.63
-</td>
-<td style="text-align:right;">
-6.41
-</td>
-<td style="text-align:right;">
-1.46
-</td>
-<td style="text-align:right;">
-13.12
-</td>
-<td style="text-align:right;">
-37.19
-</td>
-<td style="text-align:right;">
-10.55
-</td>
-<td style="text-align:right;">
-3.16
-</td>
-<td style="text-align:right;">
-6.69
-</td>
+<tr class="even">
+<td align="center">INDEPENDENCIA</td>
+<td align="center">20.53</td>
+<td align="center">0.26</td>
+<td align="center">0.63</td>
+<td align="center">6.41</td>
+<td align="center">1.46</td>
+<td align="center">13.12</td>
+<td align="center">37.19</td>
+<td align="center">10.55</td>
+<td align="center">3.16</td>
+<td align="center">6.69</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-MARÍA TRINIDAD SÁNCHEZ
-</td>
-<td style="text-align:right;">
-32.33
-</td>
-<td style="text-align:right;">
-0.45
-</td>
-<td style="text-align:right;">
-0.83
-</td>
-<td style="text-align:right;">
-7.86
-</td>
-<td style="text-align:right;">
-4.40
-</td>
-<td style="text-align:right;">
-9.28
-</td>
-<td style="text-align:right;">
-23.75
-</td>
-<td style="text-align:right;">
-7.90
-</td>
-<td style="text-align:right;">
-5.06
-</td>
-<td style="text-align:right;">
-8.12
-</td>
+<tr class="odd">
+<td align="center">MARÍA TRINIDAD SÁNCHEZ</td>
+<td align="center">32.33</td>
+<td align="center">0.45</td>
+<td align="center">0.83</td>
+<td align="center">7.86</td>
+<td align="center">4.40</td>
+<td align="center">9.28</td>
+<td align="center">23.75</td>
+<td align="center">7.90</td>
+<td align="center">5.06</td>
+<td align="center">8.12</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-MONTE CRISTI
-</td>
-<td style="text-align:right;">
-43.73
-</td>
-<td style="text-align:right;">
-0.07
-</td>
-<td style="text-align:right;">
-0.54
-</td>
-<td style="text-align:right;">
-5.62
-</td>
-<td style="text-align:right;">
-4.67
-</td>
-<td style="text-align:right;">
-7.16
-</td>
-<td style="text-align:right;">
-20.45
-</td>
-<td style="text-align:right;">
-6.02
-</td>
-<td style="text-align:right;">
-6.81
-</td>
-<td style="text-align:right;">
-4.93
-</td>
+<tr class="even">
+<td align="center">MONTE CRISTI</td>
+<td align="center">43.73</td>
+<td align="center">0.07</td>
+<td align="center">0.54</td>
+<td align="center">5.62</td>
+<td align="center">4.67</td>
+<td align="center">7.16</td>
+<td align="center">20.45</td>
+<td align="center">6.02</td>
+<td align="center">6.81</td>
+<td align="center">4.93</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-HERMANAS MIRABAL
-</td>
-<td style="text-align:right;">
-21.30
-</td>
-<td style="text-align:right;">
-0.78
-</td>
-<td style="text-align:right;">
-1.36
-</td>
-<td style="text-align:right;">
-9.58
-</td>
-<td style="text-align:right;">
-4.72
-</td>
-<td style="text-align:right;">
-11.48
-</td>
-<td style="text-align:right;">
-24.53
-</td>
-<td style="text-align:right;">
-10.84
-</td>
-<td style="text-align:right;">
-4.28
-</td>
-<td style="text-align:right;">
-11.12
-</td>
+<tr class="odd">
+<td align="center">HERMANAS MIRABAL</td>
+<td align="center">21.30</td>
+<td align="center">0.78</td>
+<td align="center">1.36</td>
+<td align="center">9.58</td>
+<td align="center">4.72</td>
+<td align="center">11.48</td>
+<td align="center">24.53</td>
+<td align="center">10.84</td>
+<td align="center">4.28</td>
+<td align="center">11.12</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-SAN JOSÉ DE OCOA
-</td>
-<td style="text-align:right;">
-1.26
-</td>
-<td style="text-align:right;">
-0.61
-</td>
-<td style="text-align:right;">
-1.09
-</td>
-<td style="text-align:right;">
-12.12
-</td>
-<td style="text-align:right;">
-0.23
-</td>
-<td style="text-align:right;">
-19.83
-</td>
-<td style="text-align:right;">
-32.97
-</td>
-<td style="text-align:right;">
-17.98
-</td>
-<td style="text-align:right;">
-0.61
-</td>
-<td style="text-align:right;">
-13.31
-</td>
+<tr class="even">
+<td align="center">SAN JOSÉ DE OCOA</td>
+<td align="center">1.26</td>
+<td align="center">0.61</td>
+<td align="center">1.09</td>
+<td align="center">12.12</td>
+<td align="center">0.23</td>
+<td align="center">19.83</td>
+<td align="center">32.97</td>
+<td align="center">17.98</td>
+<td align="center">0.61</td>
+<td align="center">13.31</td>
 </tr>
 </tbody>
 </table>
-Conjunto 2
+<p>Conjunto 2</p>
 <table>
+<colgroup>
+<col width="14%" />
+<col width="5%" />
+<col width="9%" />
+<col width="3%" />
+<col width="20%" />
+<col width="5%" />
+<col width="17%" />
+<col width="6%" />
+<col width="5%" />
+<col width="7%" />
+<col width="4%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-nombre
-</th>
-<th style="text-align:right;">
-llanura
-</th>
-<th style="text-align:right;">
-depresión/sima
-</th>
-<th style="text-align:right;">
-pico
-</th>
-<th style="text-align:right;">
-cresta
-(interfluvio no inclinado)
-</th>
-<th style="text-align:right;">
-hombrera
-</th>
-<th style="text-align:right;">
-gajo
-(interfluvio inclinado)
-</th>
-<th style="text-align:right;">
-vertiente
-</th>
-<th style="text-align:right;">
-vaguada
-</th>
-<th style="text-align:right;">
-piedemonte
-</th>
-<th style="text-align:right;">
-valle
-</th>
+<tr class="header">
+<th align="center">nombre</th>
+<th align="center">llanura</th>
+<th align="center">depresión/sima</th>
+<th align="center">pico</th>
+<th align="center">cresta(interfluvio no inclinado)</th>
+<th align="center">hombrera</th>
+<th align="center">gajo(interfluvio inclinado)</th>
+<th align="center">vertiente</th>
+<th align="center">vaguada</th>
+<th align="center">piedemonte</th>
+<th align="center">valle</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-DAJABÓN
-</td>
-<td style="text-align:right;">
-12.17
-</td>
-<td style="text-align:right;">
-0.39
-</td>
-<td style="text-align:right;">
-1.02
-</td>
-<td style="text-align:right;">
-9.63
-</td>
-<td style="text-align:right;">
-3.83
-</td>
-<td style="text-align:right;">
-14.02
-</td>
-<td style="text-align:right;">
-30.65
-</td>
-<td style="text-align:right;">
-12.87
-</td>
-<td style="text-align:right;">
-4.98
-</td>
-<td style="text-align:right;">
-10.44
-</td>
+<tr class="odd">
+<td align="center">DAJABÓN</td>
+<td align="center">12.17</td>
+<td align="center">0.39</td>
+<td align="center">1.02</td>
+<td align="center">9.63</td>
+<td align="center">3.83</td>
+<td align="center">14.02</td>
+<td align="center">30.65</td>
+<td align="center">12.87</td>
+<td align="center">4.98</td>
+<td align="center">10.44</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-LA ALTAGRACIA
-</td>
-<td style="text-align:right;">
-55.35
-</td>
-<td style="text-align:right;">
-0.16
-</td>
-<td style="text-align:right;">
-0.39
-</td>
-<td style="text-align:right;">
-3.99
-</td>
-<td style="text-align:right;">
-5.75
-</td>
-<td style="text-align:right;">
-4.91
-</td>
-<td style="text-align:right;">
-14.90
-</td>
-<td style="text-align:right;">
-4.23
-</td>
-<td style="text-align:right;">
-5.78
-</td>
-<td style="text-align:right;">
-4.53
-</td>
+<tr class="even">
+<td align="center">LA ALTAGRACIA</td>
+<td align="center">55.35</td>
+<td align="center">0.16</td>
+<td align="center">0.39</td>
+<td align="center">3.99</td>
+<td align="center">5.75</td>
+<td align="center">4.91</td>
+<td align="center">14.90</td>
+<td align="center">4.23</td>
+<td align="center">5.78</td>
+<td align="center">4.53</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-MARÍA TRINIDAD SÁNCHEZ
-</td>
-<td style="text-align:right;">
-32.33
-</td>
-<td style="text-align:right;">
-0.45
-</td>
-<td style="text-align:right;">
-0.83
-</td>
-<td style="text-align:right;">
-7.86
-</td>
-<td style="text-align:right;">
-4.40
-</td>
-<td style="text-align:right;">
-9.28
-</td>
-<td style="text-align:right;">
-23.75
-</td>
-<td style="text-align:right;">
-7.90
-</td>
-<td style="text-align:right;">
-5.06
-</td>
-<td style="text-align:right;">
-8.12
-</td>
+<tr class="odd">
+<td align="center">MARÍA TRINIDAD SÁNCHEZ</td>
+<td align="center">32.33</td>
+<td align="center">0.45</td>
+<td align="center">0.83</td>
+<td align="center">7.86</td>
+<td align="center">4.40</td>
+<td align="center">9.28</td>
+<td align="center">23.75</td>
+<td align="center">7.90</td>
+<td align="center">5.06</td>
+<td align="center">8.12</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-PUERTO PLATA
-</td>
-<td style="text-align:right;">
-9.65
-</td>
-<td style="text-align:right;">
-0.39
-</td>
-<td style="text-align:right;">
-1.29
-</td>
-<td style="text-align:right;">
-10.45
-</td>
-<td style="text-align:right;">
-1.42
-</td>
-<td style="text-align:right;">
-14.86
-</td>
-<td style="text-align:right;">
-34.59
-</td>
-<td style="text-align:right;">
-13.40
-</td>
-<td style="text-align:right;">
-3.30
-</td>
-<td style="text-align:right;">
-10.65
-</td>
+<tr class="even">
+<td align="center">PUERTO PLATA</td>
+<td align="center">9.65</td>
+<td align="center">0.39</td>
+<td align="center">1.29</td>
+<td align="center">10.45</td>
+<td align="center">1.42</td>
+<td align="center">14.86</td>
+<td align="center">34.59</td>
+<td align="center">13.40</td>
+<td align="center">3.30</td>
+<td align="center">10.65</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-SAMANÁ
-</td>
-<td style="text-align:right;">
-15.63
-</td>
-<td style="text-align:right;">
-1.61
-</td>
-<td style="text-align:right;">
-2.20
-</td>
-<td style="text-align:right;">
-11.57
-</td>
-<td style="text-align:right;">
-1.83
-</td>
-<td style="text-align:right;">
-13.60
-</td>
-<td style="text-align:right;">
-27.97
-</td>
-<td style="text-align:right;">
-11.74
-</td>
-<td style="text-align:right;">
-2.76
-</td>
-<td style="text-align:right;">
-11.09
-</td>
+<tr class="odd">
+<td align="center">SAMANÁ</td>
+<td align="center">15.63</td>
+<td align="center">1.61</td>
+<td align="center">2.20</td>
+<td align="center">11.57</td>
+<td align="center">1.83</td>
+<td align="center">13.60</td>
+<td align="center">27.97</td>
+<td align="center">11.74</td>
+<td align="center">2.76</td>
+<td align="center">11.09</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-SAN JUAN
-</td>
-<td style="text-align:right;">
-8.78
-</td>
-<td style="text-align:right;">
-0.28
-</td>
-<td style="text-align:right;">
-0.81
-</td>
-<td style="text-align:right;">
-9.04
-</td>
-<td style="text-align:right;">
-2.16
-</td>
-<td style="text-align:right;">
-16.24
-</td>
-<td style="text-align:right;">
-35.09
-</td>
-<td style="text-align:right;">
-14.39
-</td>
-<td style="text-align:right;">
-3.51
-</td>
-<td style="text-align:right;">
-9.71
-</td>
+<tr class="even">
+<td align="center">SAN JUAN</td>
+<td align="center">8.78</td>
+<td align="center">0.28</td>
+<td align="center">0.81</td>
+<td align="center">9.04</td>
+<td align="center">2.16</td>
+<td align="center">16.24</td>
+<td align="center">35.09</td>
+<td align="center">14.39</td>
+<td align="center">3.51</td>
+<td align="center">9.71</td>
 </tr>
 </tbody>
 </table>
-Conjunto 3
-<table>
+<p>Conjunto 3</p>
+<table style="width:100%;">
+<colgroup>
+<col width="12%" />
+<col width="5%" />
+<col width="9%" />
+<col width="3%" />
+<col width="20%" />
+<col width="6%" />
+<col width="17%" />
+<col width="6%" />
+<col width="5%" />
+<col width="7%" />
+<col width="4%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-nombre
-</th>
-<th style="text-align:right;">
-llanura
-</th>
-<th style="text-align:right;">
-depresión/sima
-</th>
-<th style="text-align:right;">
-pico
-</th>
-<th style="text-align:right;">
-cresta
-(interfluvio no inclinado)
-</th>
-<th style="text-align:right;">
-hombrera
-</th>
-<th style="text-align:right;">
-gajo
-(interfluvio inclinado)
-</th>
-<th style="text-align:right;">
-vertiente
-</th>
-<th style="text-align:right;">
-vaguada
-</th>
-<th style="text-align:right;">
-piedemonte
-</th>
-<th style="text-align:right;">
-valle
-</th>
+<tr class="header">
+<th align="center">nombre</th>
+<th align="center">llanura</th>
+<th align="center">depresión/sima</th>
+<th align="center">pico</th>
+<th align="center">cresta(interfluvio no inclinado)</th>
+<th align="center">hombrera</th>
+<th align="center">gajo(interfluvio inclinado)</th>
+<th align="center">vertiente</th>
+<th align="center">vaguada</th>
+<th align="center">piedemonte</th>
+<th align="center">valle</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-DAJABÓN
-</td>
-<td style="text-align:right;">
-12.17
-</td>
-<td style="text-align:right;">
-0.39
-</td>
-<td style="text-align:right;">
-1.02
-</td>
-<td style="text-align:right;">
-9.63
-</td>
-<td style="text-align:right;">
-3.83
-</td>
-<td style="text-align:right;">
-14.02
-</td>
-<td style="text-align:right;">
-30.65
-</td>
-<td style="text-align:right;">
-12.87
-</td>
-<td style="text-align:right;">
-4.98
-</td>
-<td style="text-align:right;">
-10.44
-</td>
+<tr class="odd">
+<td align="center">DAJABÓN</td>
+<td align="center">12.17</td>
+<td align="center">0.39</td>
+<td align="center">1.02</td>
+<td align="center">9.63</td>
+<td align="center">3.83</td>
+<td align="center">14.02</td>
+<td align="center">30.65</td>
+<td align="center">12.87</td>
+<td align="center">4.98</td>
+<td align="center">10.44</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-HERMANAS MIRABAL
-</td>
-<td style="text-align:right;">
-21.30
-</td>
-<td style="text-align:right;">
-0.78
-</td>
-<td style="text-align:right;">
-1.36
-</td>
-<td style="text-align:right;">
-9.58
-</td>
-<td style="text-align:right;">
-4.72
-</td>
-<td style="text-align:right;">
-11.48
-</td>
-<td style="text-align:right;">
-24.53
-</td>
-<td style="text-align:right;">
-10.84
-</td>
-<td style="text-align:right;">
-4.28
-</td>
-<td style="text-align:right;">
-11.12
-</td>
+<tr class="even">
+<td align="center">HERMANAS MIRABAL</td>
+<td align="center">21.30</td>
+<td align="center">0.78</td>
+<td align="center">1.36</td>
+<td align="center">9.58</td>
+<td align="center">4.72</td>
+<td align="center">11.48</td>
+<td align="center">24.53</td>
+<td align="center">10.84</td>
+<td align="center">4.28</td>
+<td align="center">11.12</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-SAN JUAN
-</td>
-<td style="text-align:right;">
-8.78
-</td>
-<td style="text-align:right;">
-0.28
-</td>
-<td style="text-align:right;">
-0.81
-</td>
-<td style="text-align:right;">
-9.04
-</td>
-<td style="text-align:right;">
-2.16
-</td>
-<td style="text-align:right;">
-16.24
-</td>
-<td style="text-align:right;">
-35.09
-</td>
-<td style="text-align:right;">
-14.39
-</td>
-<td style="text-align:right;">
-3.51
-</td>
-<td style="text-align:right;">
-9.71
-</td>
+<tr class="odd">
+<td align="center">SAN JUAN</td>
+<td align="center">8.78</td>
+<td align="center">0.28</td>
+<td align="center">0.81</td>
+<td align="center">9.04</td>
+<td align="center">2.16</td>
+<td align="center">16.24</td>
+<td align="center">35.09</td>
+<td align="center">14.39</td>
+<td align="center">3.51</td>
+<td align="center">9.71</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-SANTIAGO
-</td>
-<td style="text-align:right;">
-5.82
-</td>
-<td style="text-align:right;">
-0.60
-</td>
-<td style="text-align:right;">
-1.14
-</td>
-<td style="text-align:right;">
-11.25
-</td>
-<td style="text-align:right;">
-1.60
-</td>
-<td style="text-align:right;">
-17.25
-</td>
-<td style="text-align:right;">
-32.15
-</td>
-<td style="text-align:right;">
-15.95
-</td>
-<td style="text-align:right;">
-2.08
-</td>
-<td style="text-align:right;">
-12.18
-</td>
+<tr class="even">
+<td align="center">SANTIAGO</td>
+<td align="center">5.82</td>
+<td align="center">0.60</td>
+<td align="center">1.14</td>
+<td align="center">11.25</td>
+<td align="center">1.60</td>
+<td align="center">17.25</td>
+<td align="center">32.15</td>
+<td align="center">15.95</td>
+<td align="center">2.08</td>
+<td align="center">12.18</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-SANTIAGO RODRÍGUEZ
-</td>
-<td style="text-align:right;">
-1.99
-</td>
-<td style="text-align:right;">
-0.76
-</td>
-<td style="text-align:right;">
-1.33
-</td>
-<td style="text-align:right;">
-13.25
-</td>
-<td style="text-align:right;">
-2.62
-</td>
-<td style="text-align:right;">
-16.71
-</td>
-<td style="text-align:right;">
-31.13
-</td>
-<td style="text-align:right;">
-15.37
-</td>
-<td style="text-align:right;">
-2.66
-</td>
-<td style="text-align:right;">
-14.19
-</td>
+<tr class="odd">
+<td align="center">SANTIAGO RODRÍGUEZ</td>
+<td align="center">1.99</td>
+<td align="center">0.76</td>
+<td align="center">1.33</td>
+<td align="center">13.25</td>
+<td align="center">2.62</td>
+<td align="center">16.71</td>
+<td align="center">31.13</td>
+<td align="center">15.37</td>
+<td align="center">2.66</td>
+<td align="center">14.19</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-VALVERDE
-</td>
-<td style="text-align:right;">
-27.87
-</td>
-<td style="text-align:right;">
-0.16
-</td>
-<td style="text-align:right;">
-0.57
-</td>
-<td style="text-align:right;">
-6.40
-</td>
-<td style="text-align:right;">
-5.58
-</td>
-<td style="text-align:right;">
-9.62
-</td>
-<td style="text-align:right;">
-27.76
-</td>
-<td style="text-align:right;">
-8.16
-</td>
-<td style="text-align:right;">
-7.62
-</td>
-<td style="text-align:right;">
-6.25
-</td>
+<tr class="even">
+<td align="center">VALVERDE</td>
+<td align="center">27.87</td>
+<td align="center">0.16</td>
+<td align="center">0.57</td>
+<td align="center">6.40</td>
+<td align="center">5.58</td>
+<td align="center">9.62</td>
+<td align="center">27.76</td>
+<td align="center">8.16</td>
+<td align="center">7.62</td>
+<td align="center">6.25</td>
 </tr>
 </tbody>
 </table>
-Conjunto 4
+<p>Conjunto 4</p>
 <table>
+<colgroup>
+<col width="11%" />
+<col width="5%" />
+<col width="9%" />
+<col width="3%" />
+<col width="21%" />
+<col width="6%" />
+<col width="18%" />
+<col width="6%" />
+<col width="5%" />
+<col width="7%" />
+<col width="4%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-nombre
-</th>
-<th style="text-align:right;">
-llanura
-</th>
-<th style="text-align:right;">
-depresión/sima
-</th>
-<th style="text-align:right;">
-pico
-</th>
-<th style="text-align:right;">
-cresta
-(interfluvio no inclinado)
-</th>
-<th style="text-align:right;">
-hombrera
-</th>
-<th style="text-align:right;">
-gajo
-(interfluvio inclinado)
-</th>
-<th style="text-align:right;">
-vertiente
-</th>
-<th style="text-align:right;">
-vaguada
-</th>
-<th style="text-align:right;">
-piedemonte
-</th>
-<th style="text-align:right;">
-valle
-</th>
+<tr class="header">
+<th align="center">nombre</th>
+<th align="center">llanura</th>
+<th align="center">depresión/sima</th>
+<th align="center">pico</th>
+<th align="center">cresta(interfluvio no inclinado)</th>
+<th align="center">hombrera</th>
+<th align="center">gajo(interfluvio inclinado)</th>
+<th align="center">vertiente</th>
+<th align="center">vaguada</th>
+<th align="center">piedemonte</th>
+<th align="center">valle</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-BAORUCO
-</td>
-<td style="text-align:right;">
-28.09
-</td>
-<td style="text-align:right;">
-0.18
-</td>
-<td style="text-align:right;">
-0.61
-</td>
-<td style="text-align:right;">
-6.66
-</td>
-<td style="text-align:right;">
-1.54
-</td>
-<td style="text-align:right;">
-12.39
-</td>
-<td style="text-align:right;">
-29.65
-</td>
-<td style="text-align:right;">
-10.87
-</td>
-<td style="text-align:right;">
-2.60
-</td>
-<td style="text-align:right;">
-7.41
-</td>
+<tr class="odd">
+<td align="center">BAORUCO</td>
+<td align="center">28.09</td>
+<td align="center">0.18</td>
+<td align="center">0.61</td>
+<td align="center">6.66</td>
+<td align="center">1.54</td>
+<td align="center">12.39</td>
+<td align="center">29.65</td>
+<td align="center">10.87</td>
+<td align="center">2.60</td>
+<td align="center">7.41</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-ESPAILLAT
-</td>
-<td style="text-align:right;">
-11.24
-</td>
-<td style="text-align:right;">
-0.98
-</td>
-<td style="text-align:right;">
-1.70
-</td>
-<td style="text-align:right;">
-12.00
-</td>
-<td style="text-align:right;">
-3.68
-</td>
-<td style="text-align:right;">
-13.89
-</td>
-<td style="text-align:right;">
-27.07
-</td>
-<td style="text-align:right;">
-12.86
-</td>
-<td style="text-align:right;">
-3.23
-</td>
-<td style="text-align:right;">
-13.35
-</td>
+<tr class="even">
+<td align="center">ESPAILLAT</td>
+<td align="center">11.24</td>
+<td align="center">0.98</td>
+<td align="center">1.70</td>
+<td align="center">12.00</td>
+<td align="center">3.68</td>
+<td align="center">13.89</td>
+<td align="center">27.07</td>
+<td align="center">12.86</td>
+<td align="center">3.23</td>
+<td align="center">13.35</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-SANTIAGO
-</td>
-<td style="text-align:right;">
-5.82
-</td>
-<td style="text-align:right;">
-0.60
-</td>
-<td style="text-align:right;">
-1.14
-</td>
-<td style="text-align:right;">
-11.25
-</td>
-<td style="text-align:right;">
-1.60
-</td>
-<td style="text-align:right;">
-17.25
-</td>
-<td style="text-align:right;">
-32.15
-</td>
-<td style="text-align:right;">
-15.95
-</td>
-<td style="text-align:right;">
-2.08
-</td>
-<td style="text-align:right;">
-12.18
-</td>
+<tr class="odd">
+<td align="center">SANTIAGO</td>
+<td align="center">5.82</td>
+<td align="center">0.60</td>
+<td align="center">1.14</td>
+<td align="center">11.25</td>
+<td align="center">1.60</td>
+<td align="center">17.25</td>
+<td align="center">32.15</td>
+<td align="center">15.95</td>
+<td align="center">2.08</td>
+<td align="center">12.18</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-VALVERDE
-</td>
-<td style="text-align:right;">
-27.87
-</td>
-<td style="text-align:right;">
-0.16
-</td>
-<td style="text-align:right;">
-0.57
-</td>
-<td style="text-align:right;">
-6.40
-</td>
-<td style="text-align:right;">
-5.58
-</td>
-<td style="text-align:right;">
-9.62
-</td>
-<td style="text-align:right;">
-27.76
-</td>
-<td style="text-align:right;">
-8.16
-</td>
-<td style="text-align:right;">
-7.62
-</td>
-<td style="text-align:right;">
-6.25
-</td>
+<tr class="even">
+<td align="center">VALVERDE</td>
+<td align="center">27.87</td>
+<td align="center">0.16</td>
+<td align="center">0.57</td>
+<td align="center">6.40</td>
+<td align="center">5.58</td>
+<td align="center">9.62</td>
+<td align="center">27.76</td>
+<td align="center">8.16</td>
+<td align="center">7.62</td>
+<td align="center">6.25</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-MONSEÑOR NOUEL
-</td>
-<td style="text-align:right;">
-10.32
-</td>
-<td style="text-align:right;">
-0.40
-</td>
-<td style="text-align:right;">
-0.82
-</td>
-<td style="text-align:right;">
-10.14
-</td>
-<td style="text-align:right;">
-1.45
-</td>
-<td style="text-align:right;">
-17.09
-</td>
-<td style="text-align:right;">
-31.41
-</td>
-<td style="text-align:right;">
-15.01
-</td>
-<td style="text-align:right;">
-2.82
-</td>
-<td style="text-align:right;">
-10.52
-</td>
+<tr class="odd">
+<td align="center">MONSEÑOR NOUEL</td>
+<td align="center">10.32</td>
+<td align="center">0.40</td>
+<td align="center">0.82</td>
+<td align="center">10.14</td>
+<td align="center">1.45</td>
+<td align="center">17.09</td>
+<td align="center">31.41</td>
+<td align="center">15.01</td>
+<td align="center">2.82</td>
+<td align="center">10.52</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-SAN JOSÉ DE OCOA
-</td>
-<td style="text-align:right;">
-1.26
-</td>
-<td style="text-align:right;">
-0.61
-</td>
-<td style="text-align:right;">
-1.09
-</td>
-<td style="text-align:right;">
-12.12
-</td>
-<td style="text-align:right;">
-0.23
-</td>
-<td style="text-align:right;">
-19.83
-</td>
-<td style="text-align:right;">
-32.97
-</td>
-<td style="text-align:right;">
-17.98
-</td>
-<td style="text-align:right;">
-0.61
-</td>
-<td style="text-align:right;">
-13.31
-</td>
+<tr class="even">
+<td align="center">SAN JOSÉ DE OCOA</td>
+<td align="center">1.26</td>
+<td align="center">0.61</td>
+<td align="center">1.09</td>
+<td align="center">12.12</td>
+<td align="center">0.23</td>
+<td align="center">19.83</td>
+<td align="center">32.97</td>
+<td align="center">17.98</td>
+<td align="center">0.61</td>
+<td align="center">13.31</td>
 </tr>
 </tbody>
 </table>
-Conjunto 5
-<table>
+<p>Conjunto 5</p>
+<table style="width:100%;">
+<colgroup>
+<col width="12%" />
+<col width="5%" />
+<col width="9%" />
+<col width="3%" />
+<col width="20%" />
+<col width="6%" />
+<col width="17%" />
+<col width="6%" />
+<col width="5%" />
+<col width="7%" />
+<col width="4%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-nombre
-</th>
-<th style="text-align:right;">
-llanura
-</th>
-<th style="text-align:right;">
-depresión/sima
-</th>
-<th style="text-align:right;">
-pico
-</th>
-<th style="text-align:right;">
-cresta
-(interfluvio no inclinado)
-</th>
-<th style="text-align:right;">
-hombrera
-</th>
-<th style="text-align:right;">
-gajo
-(interfluvio inclinado)
-</th>
-<th style="text-align:right;">
-vertiente
-</th>
-<th style="text-align:right;">
-vaguada
-</th>
-<th style="text-align:right;">
-piedemonte
-</th>
-<th style="text-align:right;">
-valle
-</th>
+<tr class="header">
+<th align="center">nombre</th>
+<th align="center">llanura</th>
+<th align="center">depresión/sima</th>
+<th align="center">pico</th>
+<th align="center">cresta(interfluvio no inclinado)</th>
+<th align="center">hombrera</th>
+<th align="center">gajo(interfluvio inclinado)</th>
+<th align="center">vertiente</th>
+<th align="center">vaguada</th>
+<th align="center">piedemonte</th>
+<th align="center">valle</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-ELÍAS PIÑA
-</td>
-<td style="text-align:right;">
-0.81
-</td>
-<td style="text-align:right;">
-0.56
-</td>
-<td style="text-align:right;">
-1.12
-</td>
-<td style="text-align:right;">
-11.71
-</td>
-<td style="text-align:right;">
-1.11
-</td>
-<td style="text-align:right;">
-17.89
-</td>
-<td style="text-align:right;">
-36.06
-</td>
-<td style="text-align:right;">
-16.26
-</td>
-<td style="text-align:right;">
-1.77
-</td>
-<td style="text-align:right;">
-12.71
-</td>
+<tr class="odd">
+<td align="center">ELÍAS PIÑA</td>
+<td align="center">0.81</td>
+<td align="center">0.56</td>
+<td align="center">1.12</td>
+<td align="center">11.71</td>
+<td align="center">1.11</td>
+<td align="center">17.89</td>
+<td align="center">36.06</td>
+<td align="center">16.26</td>
+<td align="center">1.77</td>
+<td align="center">12.71</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-EL SEIBO
-</td>
-<td style="text-align:right;">
-14.57
-</td>
-<td style="text-align:right;">
-0.32
-</td>
-<td style="text-align:right;">
-1.15
-</td>
-<td style="text-align:right;">
-9.90
-</td>
-<td style="text-align:right;">
-5.24
-</td>
-<td style="text-align:right;">
-12.03
-</td>
-<td style="text-align:right;">
-28.32
-</td>
-<td style="text-align:right;">
-10.88
-</td>
-<td style="text-align:right;">
-7.10
-</td>
-<td style="text-align:right;">
-10.48
-</td>
+<tr class="even">
+<td align="center">EL SEIBO</td>
+<td align="center">14.57</td>
+<td align="center">0.32</td>
+<td align="center">1.15</td>
+<td align="center">9.90</td>
+<td align="center">5.24</td>
+<td align="center">12.03</td>
+<td align="center">28.32</td>
+<td align="center">10.88</td>
+<td align="center">7.10</td>
+<td align="center">10.48</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-ESPAILLAT
-</td>
-<td style="text-align:right;">
-11.24
-</td>
-<td style="text-align:right;">
-0.98
-</td>
-<td style="text-align:right;">
-1.70
-</td>
-<td style="text-align:right;">
-12.00
-</td>
-<td style="text-align:right;">
-3.68
-</td>
-<td style="text-align:right;">
-13.89
-</td>
-<td style="text-align:right;">
-27.07
-</td>
-<td style="text-align:right;">
-12.86
-</td>
-<td style="text-align:right;">
-3.23
-</td>
-<td style="text-align:right;">
-13.35
-</td>
+<tr class="odd">
+<td align="center">ESPAILLAT</td>
+<td align="center">11.24</td>
+<td align="center">0.98</td>
+<td align="center">1.70</td>
+<td align="center">12.00</td>
+<td align="center">3.68</td>
+<td align="center">13.89</td>
+<td align="center">27.07</td>
+<td align="center">12.86</td>
+<td align="center">3.23</td>
+<td align="center">13.35</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-INDEPENDENCIA
-</td>
-<td style="text-align:right;">
-20.53
-</td>
-<td style="text-align:right;">
-0.26
-</td>
-<td style="text-align:right;">
-0.63
-</td>
-<td style="text-align:right;">
-6.41
-</td>
-<td style="text-align:right;">
-1.46
-</td>
-<td style="text-align:right;">
-13.12
-</td>
-<td style="text-align:right;">
-37.19
-</td>
-<td style="text-align:right;">
-10.55
-</td>
-<td style="text-align:right;">
-3.16
-</td>
-<td style="text-align:right;">
-6.69
-</td>
+<tr class="even">
+<td align="center">INDEPENDENCIA</td>
+<td align="center">20.53</td>
+<td align="center">0.26</td>
+<td align="center">0.63</td>
+<td align="center">6.41</td>
+<td align="center">1.46</td>
+<td align="center">13.12</td>
+<td align="center">37.19</td>
+<td align="center">10.55</td>
+<td align="center">3.16</td>
+<td align="center">6.69</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-HERMANAS MIRABAL
-</td>
-<td style="text-align:right;">
-21.30
-</td>
-<td style="text-align:right;">
-0.78
-</td>
-<td style="text-align:right;">
-1.36
-</td>
-<td style="text-align:right;">
-9.58
-</td>
-<td style="text-align:right;">
-4.72
-</td>
-<td style="text-align:right;">
-11.48
-</td>
-<td style="text-align:right;">
-24.53
-</td>
-<td style="text-align:right;">
-10.84
-</td>
-<td style="text-align:right;">
-4.28
-</td>
-<td style="text-align:right;">
-11.12
-</td>
+<tr class="odd">
+<td align="center">HERMANAS MIRABAL</td>
+<td align="center">21.30</td>
+<td align="center">0.78</td>
+<td align="center">1.36</td>
+<td align="center">9.58</td>
+<td align="center">4.72</td>
+<td align="center">11.48</td>
+<td align="center">24.53</td>
+<td align="center">10.84</td>
+<td align="center">4.28</td>
+<td align="center">11.12</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-SANTIAGO RODRÍGUEZ
-</td>
-<td style="text-align:right;">
-1.99
-</td>
-<td style="text-align:right;">
-0.76
-</td>
-<td style="text-align:right;">
-1.33
-</td>
-<td style="text-align:right;">
-13.25
-</td>
-<td style="text-align:right;">
-2.62
-</td>
-<td style="text-align:right;">
-16.71
-</td>
-<td style="text-align:right;">
-31.13
-</td>
-<td style="text-align:right;">
-15.37
-</td>
-<td style="text-align:right;">
-2.66
-</td>
-<td style="text-align:right;">
-14.19
-</td>
+<tr class="even">
+<td align="center">SANTIAGO RODRÍGUEZ</td>
+<td align="center">1.99</td>
+<td align="center">0.76</td>
+<td align="center">1.33</td>
+<td align="center">13.25</td>
+<td align="center">2.62</td>
+<td align="center">16.71</td>
+<td align="center">31.13</td>
+<td align="center">15.37</td>
+<td align="center">2.66</td>
+<td align="center">14.19</td>
 </tr>
 </tbody>
 </table>
-Conjunto 6
+<p>Conjunto 6</p>
 <table>
+<colgroup>
+<col width="14%" />
+<col width="5%" />
+<col width="9%" />
+<col width="3%" />
+<col width="20%" />
+<col width="5%" />
+<col width="17%" />
+<col width="6%" />
+<col width="5%" />
+<col width="7%" />
+<col width="4%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-nombre
-</th>
-<th style="text-align:right;">
-llanura
-</th>
-<th style="text-align:right;">
-depresión/sima
-</th>
-<th style="text-align:right;">
-pico
-</th>
-<th style="text-align:right;">
-cresta
-(interfluvio no inclinado)
-</th>
-<th style="text-align:right;">
-hombrera
-</th>
-<th style="text-align:right;">
-gajo
-(interfluvio inclinado)
-</th>
-<th style="text-align:right;">
-vertiente
-</th>
-<th style="text-align:right;">
-vaguada
-</th>
-<th style="text-align:right;">
-piedemonte
-</th>
-<th style="text-align:right;">
-valle
-</th>
+<tr class="header">
+<th align="center">nombre</th>
+<th align="center">llanura</th>
+<th align="center">depresión/sima</th>
+<th align="center">pico</th>
+<th align="center">cresta(interfluvio no inclinado)</th>
+<th align="center">hombrera</th>
+<th align="center">gajo(interfluvio inclinado)</th>
+<th align="center">vertiente</th>
+<th align="center">vaguada</th>
+<th align="center">piedemonte</th>
+<th align="center">valle</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-BARAHONA
-</td>
-<td style="text-align:right;">
-11.83
-</td>
-<td style="text-align:right;">
-0.27
-</td>
-<td style="text-align:right;">
-0.78
-</td>
-<td style="text-align:right;">
-8.48
-</td>
-<td style="text-align:right;">
-1.15
-</td>
-<td style="text-align:right;">
-16.47
-</td>
-<td style="text-align:right;">
-36.09
-</td>
-<td style="text-align:right;">
-13.39
-</td>
-<td style="text-align:right;">
-2.02
-</td>
-<td style="text-align:right;">
-9.52
-</td>
+<tr class="odd">
+<td align="center">BARAHONA</td>
+<td align="center">11.83</td>
+<td align="center">0.27</td>
+<td align="center">0.78</td>
+<td align="center">8.48</td>
+<td align="center">1.15</td>
+<td align="center">16.47</td>
+<td align="center">36.09</td>
+<td align="center">13.39</td>
+<td align="center">2.02</td>
+<td align="center">9.52</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-ELÍAS PIÑA
-</td>
-<td style="text-align:right;">
-0.81
-</td>
-<td style="text-align:right;">
-0.56
-</td>
-<td style="text-align:right;">
-1.12
-</td>
-<td style="text-align:right;">
-11.71
-</td>
-<td style="text-align:right;">
-1.11
-</td>
-<td style="text-align:right;">
-17.89
-</td>
-<td style="text-align:right;">
-36.06
-</td>
-<td style="text-align:right;">
-16.26
-</td>
-<td style="text-align:right;">
-1.77
-</td>
-<td style="text-align:right;">
-12.71
-</td>
+<tr class="even">
+<td align="center">ELÍAS PIÑA</td>
+<td align="center">0.81</td>
+<td align="center">0.56</td>
+<td align="center">1.12</td>
+<td align="center">11.71</td>
+<td align="center">1.11</td>
+<td align="center">17.89</td>
+<td align="center">36.06</td>
+<td align="center">16.26</td>
+<td align="center">1.77</td>
+<td align="center">12.71</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-LA ALTAGRACIA
-</td>
-<td style="text-align:right;">
-55.35
-</td>
-<td style="text-align:right;">
-0.16
-</td>
-<td style="text-align:right;">
-0.39
-</td>
-<td style="text-align:right;">
-3.99
-</td>
-<td style="text-align:right;">
-5.75
-</td>
-<td style="text-align:right;">
-4.91
-</td>
-<td style="text-align:right;">
-14.90
-</td>
-<td style="text-align:right;">
-4.23
-</td>
-<td style="text-align:right;">
-5.78
-</td>
-<td style="text-align:right;">
-4.53
-</td>
+<tr class="odd">
+<td align="center">LA ALTAGRACIA</td>
+<td align="center">55.35</td>
+<td align="center">0.16</td>
+<td align="center">0.39</td>
+<td align="center">3.99</td>
+<td align="center">5.75</td>
+<td align="center">4.91</td>
+<td align="center">14.90</td>
+<td align="center">4.23</td>
+<td align="center">5.78</td>
+<td align="center">4.53</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-MARÍA TRINIDAD SÁNCHEZ
-</td>
-<td style="text-align:right;">
-32.33
-</td>
-<td style="text-align:right;">
-0.45
-</td>
-<td style="text-align:right;">
-0.83
-</td>
-<td style="text-align:right;">
-7.86
-</td>
-<td style="text-align:right;">
-4.40
-</td>
-<td style="text-align:right;">
-9.28
-</td>
-<td style="text-align:right;">
-23.75
-</td>
-<td style="text-align:right;">
-7.90
-</td>
-<td style="text-align:right;">
-5.06
-</td>
-<td style="text-align:right;">
-8.12
-</td>
+<tr class="even">
+<td align="center">MARÍA TRINIDAD SÁNCHEZ</td>
+<td align="center">32.33</td>
+<td align="center">0.45</td>
+<td align="center">0.83</td>
+<td align="center">7.86</td>
+<td align="center">4.40</td>
+<td align="center">9.28</td>
+<td align="center">23.75</td>
+<td align="center">7.90</td>
+<td align="center">5.06</td>
+<td align="center">8.12</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-PERAVIA
-</td>
-<td style="text-align:right;">
-16.39
-</td>
-<td style="text-align:right;">
-0.26
-</td>
-<td style="text-align:right;">
-1.03
-</td>
-<td style="text-align:right;">
-9.36
-</td>
-<td style="text-align:right;">
-3.61
-</td>
-<td style="text-align:right;">
-13.79
-</td>
-<td style="text-align:right;">
-28.75
-</td>
-<td style="text-align:right;">
-12.33
-</td>
-<td style="text-align:right;">
-4.89
-</td>
-<td style="text-align:right;">
-9.59
-</td>
+<tr class="odd">
+<td align="center">PERAVIA</td>
+<td align="center">16.39</td>
+<td align="center">0.26</td>
+<td align="center">1.03</td>
+<td align="center">9.36</td>
+<td align="center">3.61</td>
+<td align="center">13.79</td>
+<td align="center">28.75</td>
+<td align="center">12.33</td>
+<td align="center">4.89</td>
+<td align="center">9.59</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-SAN CRISTÓBAL
-</td>
-<td style="text-align:right;">
-5.57
-</td>
-<td style="text-align:right;">
-0.60
-</td>
-<td style="text-align:right;">
-1.15
-</td>
-<td style="text-align:right;">
-12.12
-</td>
-<td style="text-align:right;">
-1.90
-</td>
-<td style="text-align:right;">
-16.60
-</td>
-<td style="text-align:right;">
-31.10
-</td>
-<td style="text-align:right;">
-15.15
-</td>
-<td style="text-align:right;">
-3.14
-</td>
-<td style="text-align:right;">
-12.68
-</td>
+<tr class="even">
+<td align="center">SAN CRISTÓBAL</td>
+<td align="center">5.57</td>
+<td align="center">0.60</td>
+<td align="center">1.15</td>
+<td align="center">12.12</td>
+<td align="center">1.90</td>
+<td align="center">16.60</td>
+<td align="center">31.10</td>
+<td align="center">15.15</td>
+<td align="center">3.14</td>
+<td align="center">12.68</td>
 </tr>
 </tbody>
 </table>
-Conjunto 7
+<p>Conjunto 7</p>
 <table>
+<colgroup>
+<col width="9%" />
+<col width="5%" />
+<col width="10%" />
+<col width="3%" />
+<col width="21%" />
+<col width="6%" />
+<col width="18%" />
+<col width="6%" />
+<col width="5%" />
+<col width="7%" />
+<col width="4%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-nombre
-</th>
-<th style="text-align:right;">
-llanura
-</th>
-<th style="text-align:right;">
-depresión/sima
-</th>
-<th style="text-align:right;">
-pico
-</th>
-<th style="text-align:right;">
-cresta
-(interfluvio no inclinado)
-</th>
-<th style="text-align:right;">
-hombrera
-</th>
-<th style="text-align:right;">
-gajo
-(interfluvio inclinado)
-</th>
-<th style="text-align:right;">
-vertiente
-</th>
-<th style="text-align:right;">
-vaguada
-</th>
-<th style="text-align:right;">
-piedemonte
-</th>
-<th style="text-align:right;">
-valle
-</th>
+<tr class="header">
+<th align="center">nombre</th>
+<th align="center">llanura</th>
+<th align="center">depresión/sima</th>
+<th align="center">pico</th>
+<th align="center">cresta(interfluvio no inclinado)</th>
+<th align="center">hombrera</th>
+<th align="center">gajo(interfluvio inclinado)</th>
+<th align="center">vertiente</th>
+<th align="center">vaguada</th>
+<th align="center">piedemonte</th>
+<th align="center">valle</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-ELÍAS PIÑA
-</td>
-<td style="text-align:right;">
-0.81
-</td>
-<td style="text-align:right;">
-0.56
-</td>
-<td style="text-align:right;">
-1.12
-</td>
-<td style="text-align:right;">
-11.71
-</td>
-<td style="text-align:right;">
-1.11
-</td>
-<td style="text-align:right;">
-17.89
-</td>
-<td style="text-align:right;">
-36.06
-</td>
-<td style="text-align:right;">
-16.26
-</td>
-<td style="text-align:right;">
-1.77
-</td>
-<td style="text-align:right;">
-12.71
-</td>
+<tr class="odd">
+<td align="center">ELÍAS PIÑA</td>
+<td align="center">0.81</td>
+<td align="center">0.56</td>
+<td align="center">1.12</td>
+<td align="center">11.71</td>
+<td align="center">1.11</td>
+<td align="center">17.89</td>
+<td align="center">36.06</td>
+<td align="center">16.26</td>
+<td align="center">1.77</td>
+<td align="center">12.71</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-ESPAILLAT
-</td>
-<td style="text-align:right;">
-11.24
-</td>
-<td style="text-align:right;">
-0.98
-</td>
-<td style="text-align:right;">
-1.70
-</td>
-<td style="text-align:right;">
-12.00
-</td>
-<td style="text-align:right;">
-3.68
-</td>
-<td style="text-align:right;">
-13.89
-</td>
-<td style="text-align:right;">
-27.07
-</td>
-<td style="text-align:right;">
-12.86
-</td>
-<td style="text-align:right;">
-3.23
-</td>
-<td style="text-align:right;">
-13.35
-</td>
+<tr class="even">
+<td align="center">ESPAILLAT</td>
+<td align="center">11.24</td>
+<td align="center">0.98</td>
+<td align="center">1.70</td>
+<td align="center">12.00</td>
+<td align="center">3.68</td>
+<td align="center">13.89</td>
+<td align="center">27.07</td>
+<td align="center">12.86</td>
+<td align="center">3.23</td>
+<td align="center">13.35</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-INDEPENDENCIA
-</td>
-<td style="text-align:right;">
-20.53
-</td>
-<td style="text-align:right;">
-0.26
-</td>
-<td style="text-align:right;">
-0.63
-</td>
-<td style="text-align:right;">
-6.41
-</td>
-<td style="text-align:right;">
-1.46
-</td>
-<td style="text-align:right;">
-13.12
-</td>
-<td style="text-align:right;">
-37.19
-</td>
-<td style="text-align:right;">
-10.55
-</td>
-<td style="text-align:right;">
-3.16
-</td>
-<td style="text-align:right;">
-6.69
-</td>
+<tr class="odd">
+<td align="center">INDEPENDENCIA</td>
+<td align="center">20.53</td>
+<td align="center">0.26</td>
+<td align="center">0.63</td>
+<td align="center">6.41</td>
+<td align="center">1.46</td>
+<td align="center">13.12</td>
+<td align="center">37.19</td>
+<td align="center">10.55</td>
+<td align="center">3.16</td>
+<td align="center">6.69</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-LA ROMANA
-</td>
-<td style="text-align:right;">
-57.78
-</td>
-<td style="text-align:right;">
-0.29
-</td>
-<td style="text-align:right;">
-0.11
-</td>
-<td style="text-align:right;">
-3.23
-</td>
-<td style="text-align:right;">
-9.67
-</td>
-<td style="text-align:right;">
-2.92
-</td>
-<td style="text-align:right;">
-11.74
-</td>
-<td style="text-align:right;">
-2.70
-</td>
-<td style="text-align:right;">
-7.20
-</td>
-<td style="text-align:right;">
-4.37
-</td>
+<tr class="even">
+<td align="center">LA ROMANA</td>
+<td align="center">57.78</td>
+<td align="center">0.29</td>
+<td align="center">0.11</td>
+<td align="center">3.23</td>
+<td align="center">9.67</td>
+<td align="center">2.92</td>
+<td align="center">11.74</td>
+<td align="center">2.70</td>
+<td align="center">7.20</td>
+<td align="center">4.37</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-LA VEGA
-</td>
-<td style="text-align:right;">
-14.44
-</td>
-<td style="text-align:right;">
-0.49
-</td>
-<td style="text-align:right;">
-1.03
-</td>
-<td style="text-align:right;">
-10.82
-</td>
-<td style="text-align:right;">
-1.07
-</td>
-<td style="text-align:right;">
-16.03
-</td>
-<td style="text-align:right;">
-28.01
-</td>
-<td style="text-align:right;">
-14.83
-</td>
-<td style="text-align:right;">
-1.41
-</td>
-<td style="text-align:right;">
-11.87
-</td>
+<tr class="odd">
+<td align="center">LA VEGA</td>
+<td align="center">14.44</td>
+<td align="center">0.49</td>
+<td align="center">1.03</td>
+<td align="center">10.82</td>
+<td align="center">1.07</td>
+<td align="center">16.03</td>
+<td align="center">28.01</td>
+<td align="center">14.83</td>
+<td align="center">1.41</td>
+<td align="center">11.87</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-MONTE CRISTI
-</td>
-<td style="text-align:right;">
-43.73
-</td>
-<td style="text-align:right;">
-0.07
-</td>
-<td style="text-align:right;">
-0.54
-</td>
-<td style="text-align:right;">
-5.62
-</td>
-<td style="text-align:right;">
-4.67
-</td>
-<td style="text-align:right;">
-7.16
-</td>
-<td style="text-align:right;">
-20.45
-</td>
-<td style="text-align:right;">
-6.02
-</td>
-<td style="text-align:right;">
-6.81
-</td>
-<td style="text-align:right;">
-4.93
-</td>
+<tr class="even">
+<td align="center">MONTE CRISTI</td>
+<td align="center">43.73</td>
+<td align="center">0.07</td>
+<td align="center">0.54</td>
+<td align="center">5.62</td>
+<td align="center">4.67</td>
+<td align="center">7.16</td>
+<td align="center">20.45</td>
+<td align="center">6.02</td>
+<td align="center">6.81</td>
+<td align="center">4.93</td>
 </tr>
 </tbody>
 </table>
-Conjunto 8
+<p>Conjunto 8</p>
 <table>
+<colgroup>
+<col width="13%" />
+<col width="5%" />
+<col width="9%" />
+<col width="3%" />
+<col width="20%" />
+<col width="6%" />
+<col width="17%" />
+<col width="6%" />
+<col width="5%" />
+<col width="7%" />
+<col width="4%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-nombre
-</th>
-<th style="text-align:right;">
-llanura
-</th>
-<th style="text-align:right;">
-depresión/sima
-</th>
-<th style="text-align:right;">
-pico
-</th>
-<th style="text-align:right;">
-cresta
-(interfluvio no inclinado)
-</th>
-<th style="text-align:right;">
-hombrera
-</th>
-<th style="text-align:right;">
-gajo
-(interfluvio inclinado)
-</th>
-<th style="text-align:right;">
-vertiente
-</th>
-<th style="text-align:right;">
-vaguada
-</th>
-<th style="text-align:right;">
-piedemonte
-</th>
-<th style="text-align:right;">
-valle
-</th>
+<tr class="header">
+<th align="center">nombre</th>
+<th align="center">llanura</th>
+<th align="center">depresión/sima</th>
+<th align="center">pico</th>
+<th align="center">cresta(interfluvio no inclinado)</th>
+<th align="center">hombrera</th>
+<th align="center">gajo(interfluvio inclinado)</th>
+<th align="center">vertiente</th>
+<th align="center">vaguada</th>
+<th align="center">piedemonte</th>
+<th align="center">valle</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-ESPAILLAT
-</td>
-<td style="text-align:right;">
-11.24
-</td>
-<td style="text-align:right;">
-0.98
-</td>
-<td style="text-align:right;">
-1.70
-</td>
-<td style="text-align:right;">
-12.00
-</td>
-<td style="text-align:right;">
-3.68
-</td>
-<td style="text-align:right;">
-13.89
-</td>
-<td style="text-align:right;">
-27.07
-</td>
-<td style="text-align:right;">
-12.86
-</td>
-<td style="text-align:right;">
-3.23
-</td>
-<td style="text-align:right;">
-13.35
-</td>
+<tr class="odd">
+<td align="center">ESPAILLAT</td>
+<td align="center">11.24</td>
+<td align="center">0.98</td>
+<td align="center">1.70</td>
+<td align="center">12.00</td>
+<td align="center">3.68</td>
+<td align="center">13.89</td>
+<td align="center">27.07</td>
+<td align="center">12.86</td>
+<td align="center">3.23</td>
+<td align="center">13.35</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-INDEPENDENCIA
-</td>
-<td style="text-align:right;">
-20.53
-</td>
-<td style="text-align:right;">
-0.26
-</td>
-<td style="text-align:right;">
-0.63
-</td>
-<td style="text-align:right;">
-6.41
-</td>
-<td style="text-align:right;">
-1.46
-</td>
-<td style="text-align:right;">
-13.12
-</td>
-<td style="text-align:right;">
-37.19
-</td>
-<td style="text-align:right;">
-10.55
-</td>
-<td style="text-align:right;">
-3.16
-</td>
-<td style="text-align:right;">
-6.69
-</td>
+<tr class="even">
+<td align="center">INDEPENDENCIA</td>
+<td align="center">20.53</td>
+<td align="center">0.26</td>
+<td align="center">0.63</td>
+<td align="center">6.41</td>
+<td align="center">1.46</td>
+<td align="center">13.12</td>
+<td align="center">37.19</td>
+<td align="center">10.55</td>
+<td align="center">3.16</td>
+<td align="center">6.69</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-SAN CRISTÓBAL
-</td>
-<td style="text-align:right;">
-5.57
-</td>
-<td style="text-align:right;">
-0.60
-</td>
-<td style="text-align:right;">
-1.15
-</td>
-<td style="text-align:right;">
-12.12
-</td>
-<td style="text-align:right;">
-1.90
-</td>
-<td style="text-align:right;">
-16.60
-</td>
-<td style="text-align:right;">
-31.10
-</td>
-<td style="text-align:right;">
-15.15
-</td>
-<td style="text-align:right;">
-3.14
-</td>
-<td style="text-align:right;">
-12.68
-</td>
+<tr class="odd">
+<td align="center">SAN CRISTÓBAL</td>
+<td align="center">5.57</td>
+<td align="center">0.60</td>
+<td align="center">1.15</td>
+<td align="center">12.12</td>
+<td align="center">1.90</td>
+<td align="center">16.60</td>
+<td align="center">31.10</td>
+<td align="center">15.15</td>
+<td align="center">3.14</td>
+<td align="center">12.68</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-SAN PEDRO DE MACORÍS
-</td>
-<td style="text-align:right;">
-68.37
-</td>
-<td style="text-align:right;">
-0.14
-</td>
-<td style="text-align:right;">
-0.08
-</td>
-<td style="text-align:right;">
-2.59
-</td>
-<td style="text-align:right;">
-7.42
-</td>
-<td style="text-align:right;">
-2.11
-</td>
-<td style="text-align:right;">
-8.28
-</td>
-<td style="text-align:right;">
-1.83
-</td>
-<td style="text-align:right;">
-5.87
-</td>
-<td style="text-align:right;">
-3.30
-</td>
+<tr class="even">
+<td align="center">SAN PEDRO DE MACORÍS</td>
+<td align="center">68.37</td>
+<td align="center">0.14</td>
+<td align="center">0.08</td>
+<td align="center">2.59</td>
+<td align="center">7.42</td>
+<td align="center">2.11</td>
+<td align="center">8.28</td>
+<td align="center">1.83</td>
+<td align="center">5.87</td>
+<td align="center">3.30</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-VALVERDE
-</td>
-<td style="text-align:right;">
-27.87
-</td>
-<td style="text-align:right;">
-0.16
-</td>
-<td style="text-align:right;">
-0.57
-</td>
-<td style="text-align:right;">
-6.40
-</td>
-<td style="text-align:right;">
-5.58
-</td>
-<td style="text-align:right;">
-9.62
-</td>
-<td style="text-align:right;">
-27.76
-</td>
-<td style="text-align:right;">
-8.16
-</td>
-<td style="text-align:right;">
-7.62
-</td>
-<td style="text-align:right;">
-6.25
-</td>
+<tr class="odd">
+<td align="center">VALVERDE</td>
+<td align="center">27.87</td>
+<td align="center">0.16</td>
+<td align="center">0.57</td>
+<td align="center">6.40</td>
+<td align="center">5.58</td>
+<td align="center">9.62</td>
+<td align="center">27.76</td>
+<td align="center">8.16</td>
+<td align="center">7.62</td>
+<td align="center">6.25</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-MONSEÑOR NOUEL
-</td>
-<td style="text-align:right;">
-10.32
-</td>
-<td style="text-align:right;">
-0.40
-</td>
-<td style="text-align:right;">
-0.82
-</td>
-<td style="text-align:right;">
-10.14
-</td>
-<td style="text-align:right;">
-1.45
-</td>
-<td style="text-align:right;">
-17.09
-</td>
-<td style="text-align:right;">
-31.41
-</td>
-<td style="text-align:right;">
-15.01
-</td>
-<td style="text-align:right;">
-2.82
-</td>
-<td style="text-align:right;">
-10.52
-</td>
+<tr class="even">
+<td align="center">MONSEÑOR NOUEL</td>
+<td align="center">10.32</td>
+<td align="center">0.40</td>
+<td align="center">0.82</td>
+<td align="center">10.14</td>
+<td align="center">1.45</td>
+<td align="center">17.09</td>
+<td align="center">31.41</td>
+<td align="center">15.01</td>
+<td align="center">2.82</td>
+<td align="center">10.52</td>
 </tr>
 </tbody>
 </table>
-Conjunto 9
+<p>Conjunto 9</p>
 <table>
+<colgroup>
+<col width="9%" />
+<col width="5%" />
+<col width="10%" />
+<col width="3%" />
+<col width="21%" />
+<col width="6%" />
+<col width="18%" />
+<col width="6%" />
+<col width="5%" />
+<col width="7%" />
+<col width="4%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-nombre
-</th>
-<th style="text-align:right;">
-llanura
-</th>
-<th style="text-align:right;">
-depresión/sima
-</th>
-<th style="text-align:right;">
-pico
-</th>
-<th style="text-align:right;">
-cresta
-(interfluvio no inclinado)
-</th>
-<th style="text-align:right;">
-hombrera
-</th>
-<th style="text-align:right;">
-gajo
-(interfluvio inclinado)
-</th>
-<th style="text-align:right;">
-vertiente
-</th>
-<th style="text-align:right;">
-vaguada
-</th>
-<th style="text-align:right;">
-piedemonte
-</th>
-<th style="text-align:right;">
-valle
-</th>
+<tr class="header">
+<th align="center">nombre</th>
+<th align="center">llanura</th>
+<th align="center">depresión/sima</th>
+<th align="center">pico</th>
+<th align="center">cresta(interfluvio no inclinado)</th>
+<th align="center">hombrera</th>
+<th align="center">gajo(interfluvio inclinado)</th>
+<th align="center">vertiente</th>
+<th align="center">vaguada</th>
+<th align="center">piedemonte</th>
+<th align="center">valle</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-AZUA
-</td>
-<td style="text-align:right;">
-8.54
-</td>
-<td style="text-align:right;">
-0.28
-</td>
-<td style="text-align:right;">
-0.98
-</td>
-<td style="text-align:right;">
-9.75
-</td>
-<td style="text-align:right;">
-1.55
-</td>
-<td style="text-align:right;">
-16.64
-</td>
-<td style="text-align:right;">
-34.34
-</td>
-<td style="text-align:right;">
-14.79
-</td>
-<td style="text-align:right;">
-2.73
-</td>
-<td style="text-align:right;">
-10.41
-</td>
+<tr class="odd">
+<td align="center">AZUA</td>
+<td align="center">8.54</td>
+<td align="center">0.28</td>
+<td align="center">0.98</td>
+<td align="center">9.75</td>
+<td align="center">1.55</td>
+<td align="center">16.64</td>
+<td align="center">34.34</td>
+<td align="center">14.79</td>
+<td align="center">2.73</td>
+<td align="center">10.41</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-DUARTE
-</td>
-<td style="text-align:right;">
-43.61
-</td>
-<td style="text-align:right;">
-0.80
-</td>
-<td style="text-align:right;">
-1.20
-</td>
-<td style="text-align:right;">
-7.60
-</td>
-<td style="text-align:right;">
-2.49
-</td>
-<td style="text-align:right;">
-8.69
-</td>
-<td style="text-align:right;">
-16.51
-</td>
-<td style="text-align:right;">
-7.83
-</td>
-<td style="text-align:right;">
-2.90
-</td>
-<td style="text-align:right;">
-8.38
-</td>
+<tr class="even">
+<td align="center">DUARTE</td>
+<td align="center">43.61</td>
+<td align="center">0.80</td>
+<td align="center">1.20</td>
+<td align="center">7.60</td>
+<td align="center">2.49</td>
+<td align="center">8.69</td>
+<td align="center">16.51</td>
+<td align="center">7.83</td>
+<td align="center">2.90</td>
+<td align="center">8.38</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-ELÍAS PIÑA
-</td>
-<td style="text-align:right;">
-0.81
-</td>
-<td style="text-align:right;">
-0.56
-</td>
-<td style="text-align:right;">
-1.12
-</td>
-<td style="text-align:right;">
-11.71
-</td>
-<td style="text-align:right;">
-1.11
-</td>
-<td style="text-align:right;">
-17.89
-</td>
-<td style="text-align:right;">
-36.06
-</td>
-<td style="text-align:right;">
-16.26
-</td>
-<td style="text-align:right;">
-1.77
-</td>
-<td style="text-align:right;">
-12.71
-</td>
+<tr class="odd">
+<td align="center">ELÍAS PIÑA</td>
+<td align="center">0.81</td>
+<td align="center">0.56</td>
+<td align="center">1.12</td>
+<td align="center">11.71</td>
+<td align="center">1.11</td>
+<td align="center">17.89</td>
+<td align="center">36.06</td>
+<td align="center">16.26</td>
+<td align="center">1.77</td>
+<td align="center">12.71</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-SAN CRISTÓBAL
-</td>
-<td style="text-align:right;">
-5.57
-</td>
-<td style="text-align:right;">
-0.60
-</td>
-<td style="text-align:right;">
-1.15
-</td>
-<td style="text-align:right;">
-12.12
-</td>
-<td style="text-align:right;">
-1.90
-</td>
-<td style="text-align:right;">
-16.60
-</td>
-<td style="text-align:right;">
-31.10
-</td>
-<td style="text-align:right;">
-15.15
-</td>
-<td style="text-align:right;">
-3.14
-</td>
-<td style="text-align:right;">
-12.68
-</td>
+<tr class="even">
+<td align="center">SAN CRISTÓBAL</td>
+<td align="center">5.57</td>
+<td align="center">0.60</td>
+<td align="center">1.15</td>
+<td align="center">12.12</td>
+<td align="center">1.90</td>
+<td align="center">16.60</td>
+<td align="center">31.10</td>
+<td align="center">15.15</td>
+<td align="center">3.14</td>
+<td align="center">12.68</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-SANTIAGO
-</td>
-<td style="text-align:right;">
-5.82
-</td>
-<td style="text-align:right;">
-0.60
-</td>
-<td style="text-align:right;">
-1.14
-</td>
-<td style="text-align:right;">
-11.25
-</td>
-<td style="text-align:right;">
-1.60
-</td>
-<td style="text-align:right;">
-17.25
-</td>
-<td style="text-align:right;">
-32.15
-</td>
-<td style="text-align:right;">
-15.95
-</td>
-<td style="text-align:right;">
-2.08
-</td>
-<td style="text-align:right;">
-12.18
-</td>
+<tr class="odd">
+<td align="center">SANTIAGO</td>
+<td align="center">5.82</td>
+<td align="center">0.60</td>
+<td align="center">1.14</td>
+<td align="center">11.25</td>
+<td align="center">1.60</td>
+<td align="center">17.25</td>
+<td align="center">32.15</td>
+<td align="center">15.95</td>
+<td align="center">2.08</td>
+<td align="center">12.18</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-VALVERDE
-</td>
-<td style="text-align:right;">
-27.87
-</td>
-<td style="text-align:right;">
-0.16
-</td>
-<td style="text-align:right;">
-0.57
-</td>
-<td style="text-align:right;">
-6.40
-</td>
-<td style="text-align:right;">
-5.58
-</td>
-<td style="text-align:right;">
-9.62
-</td>
-<td style="text-align:right;">
-27.76
-</td>
-<td style="text-align:right;">
-8.16
-</td>
-<td style="text-align:right;">
-7.62
-</td>
-<td style="text-align:right;">
-6.25
-</td>
+<tr class="even">
+<td align="center">VALVERDE</td>
+<td align="center">27.87</td>
+<td align="center">0.16</td>
+<td align="center">0.57</td>
+<td align="center">6.40</td>
+<td align="center">5.58</td>
+<td align="center">9.62</td>
+<td align="center">27.76</td>
+<td align="center">8.16</td>
+<td align="center">7.62</td>
+<td align="center">6.25</td>
 </tr>
 </tbody>
 </table>
-Conjunto 10
-<table>
+<p>Conjunto 10</p>
+<table style="width:100%;">
+<colgroup>
+<col width="8%" />
+<col width="5%" />
+<col width="10%" />
+<col width="3%" />
+<col width="21%" />
+<col width="6%" />
+<col width="18%" />
+<col width="7%" />
+<col width="5%" />
+<col width="7%" />
+<col width="4%" />
+</colgroup>
 <thead>
-<tr>
-<th style="text-align:left;">
-nombre
-</th>
-<th style="text-align:right;">
-llanura
-</th>
-<th style="text-align:right;">
-depresión/sima
-</th>
-<th style="text-align:right;">
-pico
-</th>
-<th style="text-align:right;">
-cresta
-(interfluvio no inclinado)
-</th>
-<th style="text-align:right;">
-hombrera
-</th>
-<th style="text-align:right;">
-gajo
-(interfluvio inclinado)
-</th>
-<th style="text-align:right;">
-vertiente
-</th>
-<th style="text-align:right;">
-vaguada
-</th>
-<th style="text-align:right;">
-piedemonte
-</th>
-<th style="text-align:right;">
-valle
-</th>
+<tr class="header">
+<th align="center">nombre</th>
+<th align="center">llanura</th>
+<th align="center">depresión/sima</th>
+<th align="center">pico</th>
+<th align="center">cresta(interfluvio no inclinado)</th>
+<th align="center">hombrera</th>
+<th align="center">gajo(interfluvio inclinado)</th>
+<th align="center">vertiente</th>
+<th align="center">vaguada</th>
+<th align="center">piedemonte</th>
+<th align="center">valle</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-DAJABÓN
-</td>
-<td style="text-align:right;">
-12.17
-</td>
-<td style="text-align:right;">
-0.39
-</td>
-<td style="text-align:right;">
-1.02
-</td>
-<td style="text-align:right;">
-9.63
-</td>
-<td style="text-align:right;">
-3.83
-</td>
-<td style="text-align:right;">
-14.02
-</td>
-<td style="text-align:right;">
-30.65
-</td>
-<td style="text-align:right;">
-12.87
-</td>
-<td style="text-align:right;">
-4.98
-</td>
-<td style="text-align:right;">
-10.44
-</td>
+<tr class="odd">
+<td align="center">DAJABÓN</td>
+<td align="center">12.17</td>
+<td align="center">0.39</td>
+<td align="center">1.02</td>
+<td align="center">9.63</td>
+<td align="center">3.83</td>
+<td align="center">14.02</td>
+<td align="center">30.65</td>
+<td align="center">12.87</td>
+<td align="center">4.98</td>
+<td align="center">10.44</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-EL SEIBO
-</td>
-<td style="text-align:right;">
-14.57
-</td>
-<td style="text-align:right;">
-0.32
-</td>
-<td style="text-align:right;">
-1.15
-</td>
-<td style="text-align:right;">
-9.90
-</td>
-<td style="text-align:right;">
-5.24
-</td>
-<td style="text-align:right;">
-12.03
-</td>
-<td style="text-align:right;">
-28.32
-</td>
-<td style="text-align:right;">
-10.88
-</td>
-<td style="text-align:right;">
-7.10
-</td>
-<td style="text-align:right;">
-10.48
-</td>
+<tr class="even">
+<td align="center">EL SEIBO</td>
+<td align="center">14.57</td>
+<td align="center">0.32</td>
+<td align="center">1.15</td>
+<td align="center">9.90</td>
+<td align="center">5.24</td>
+<td align="center">12.03</td>
+<td align="center">28.32</td>
+<td align="center">10.88</td>
+<td align="center">7.10</td>
+<td align="center">10.48</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-LA ROMANA
-</td>
-<td style="text-align:right;">
-57.78
-</td>
-<td style="text-align:right;">
-0.29
-</td>
-<td style="text-align:right;">
-0.11
-</td>
-<td style="text-align:right;">
-3.23
-</td>
-<td style="text-align:right;">
-9.67
-</td>
-<td style="text-align:right;">
-2.92
-</td>
-<td style="text-align:right;">
-11.74
-</td>
-<td style="text-align:right;">
-2.70
-</td>
-<td style="text-align:right;">
-7.20
-</td>
-<td style="text-align:right;">
-4.37
-</td>
+<tr class="odd">
+<td align="center">LA ROMANA</td>
+<td align="center">57.78</td>
+<td align="center">0.29</td>
+<td align="center">0.11</td>
+<td align="center">3.23</td>
+<td align="center">9.67</td>
+<td align="center">2.92</td>
+<td align="center">11.74</td>
+<td align="center">2.70</td>
+<td align="center">7.20</td>
+<td align="center">4.37</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-LA VEGA
-</td>
-<td style="text-align:right;">
-14.44
-</td>
-<td style="text-align:right;">
-0.49
-</td>
-<td style="text-align:right;">
-1.03
-</td>
-<td style="text-align:right;">
-10.82
-</td>
-<td style="text-align:right;">
-1.07
-</td>
-<td style="text-align:right;">
-16.03
-</td>
-<td style="text-align:right;">
-28.01
-</td>
-<td style="text-align:right;">
-14.83
-</td>
-<td style="text-align:right;">
-1.41
-</td>
-<td style="text-align:right;">
-11.87
-</td>
+<tr class="even">
+<td align="center">LA VEGA</td>
+<td align="center">14.44</td>
+<td align="center">0.49</td>
+<td align="center">1.03</td>
+<td align="center">10.82</td>
+<td align="center">1.07</td>
+<td align="center">16.03</td>
+<td align="center">28.01</td>
+<td align="center">14.83</td>
+<td align="center">1.41</td>
+<td align="center">11.87</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-PUERTO PLATA
-</td>
-<td style="text-align:right;">
-9.65
-</td>
-<td style="text-align:right;">
-0.39
-</td>
-<td style="text-align:right;">
-1.29
-</td>
-<td style="text-align:right;">
-10.45
-</td>
-<td style="text-align:right;">
-1.42
-</td>
-<td style="text-align:right;">
-14.86
-</td>
-<td style="text-align:right;">
-34.59
-</td>
-<td style="text-align:right;">
-13.40
-</td>
-<td style="text-align:right;">
-3.30
-</td>
-<td style="text-align:right;">
-10.65
-</td>
+<tr class="odd">
+<td align="center">PUERTO PLATA</td>
+<td align="center">9.65</td>
+<td align="center">0.39</td>
+<td align="center">1.29</td>
+<td align="center">10.45</td>
+<td align="center">1.42</td>
+<td align="center">14.86</td>
+<td align="center">34.59</td>
+<td align="center">13.40</td>
+<td align="center">3.30</td>
+<td align="center">10.65</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-MONTE PLATA
-</td>
-<td style="text-align:right;">
-16.44
-</td>
-<td style="text-align:right;">
-1.51
-</td>
-<td style="text-align:right;">
-1.76
-</td>
-<td style="text-align:right;">
-11.38
-</td>
-<td style="text-align:right;">
-6.24
-</td>
-<td style="text-align:right;">
-11.15
-</td>
-<td style="text-align:right;">
-23.44
-</td>
-<td style="text-align:right;">
-9.95
-</td>
-<td style="text-align:right;">
-5.52
-</td>
-<td style="text-align:right;">
-12.61
-</td>
+<tr class="even">
+<td align="center">MONTE PLATA</td>
+<td align="center">16.44</td>
+<td align="center">1.51</td>
+<td align="center">1.76</td>
+<td align="center">11.38</td>
+<td align="center">6.24</td>
+<td align="center">11.15</td>
+<td align="center">23.44</td>
+<td align="center">9.95</td>
+<td align="center">5.52</td>
+<td align="center">12.61</td>
 </tr>
 </tbody>
 </table>
-<pre class="r"><code># sapply(conjuntos_l,
-#        knitr::kable,
-#        digits = 2,
-#        format = ifelse(grepl(&#39;gfm&#39;, output_format), &#39;markdown&#39;, &#39;html&#39;),
-#        simplify = F)</code></pre>
 <ol start="4">
 <li><strong>Generación de la matriz de distancias de cada uno de los diez conjuntos</strong>. Esta es la matriz de distancias con la que podrás realizar el agrupamiento jerárquico UPGMA, y podrás comprobar tus cálculos de distancias seleccionados.</li>
 </ol>
-<pre class="r"><code># Mostrar la tabla generada
-# sapply(conjuntos_par, knitr::kable(conjuntos_par))
-# knitr::kable(data)</code></pre>
+<pre class="r"><code># Mostrar las matrices de distancia
+print(sapply(
+  conjuntos_l,
+  function(x)
+    x %&gt;% as.data.frame() %&gt;% column_to_rownames(&#39;nombre&#39;) %&gt;% dist,
+  simplify = F),
+  digits = 2)</code></pre>
+<pre><code>## $`Conjunto 1`
+##                        BAORUCO INDEPENDENCIA MARÍA TRINIDAD SÁNCHEZ
+## INDEPENDENCIA             10.7                                     
+## MARÍA TRINIDAD SÁNCHEZ     9.4          18.9                       
+## MONTE CRISTI              20.4          30.0                   12.9
+## HERMANAS MIRABAL          10.5          14.4                   12.2
+## SAN JOSÉ DE OCOA          30.1          24.0                   36.7
+##                        MONTE CRISTI HERMANAS MIRABAL
+## INDEPENDENCIA                                       
+## MARÍA TRINIDAD SÁNCHEZ                              
+## MONTE CRISTI                                        
+## HERMANAS MIRABAL               25.0                 
+## SAN JOSÉ DE OCOA               49.3             25.3
+## 
+## $`Conjunto 2`
+##                        DAJABÓN LA ALTAGRACIA MARÍA TRINIDAD SÁNCHEZ
+## LA ALTAGRACIA             48.4                                     
+## MARÍA TRINIDAD SÁNCHEZ    22.6          25.9                       
+## PUERTO PLATA               5.7          52.6                   26.8
+## SAMANÁ                     6.1          44.8                   19.2
+## SAN JUAN                   6.7          53.7                   28.0
+##                        PUERTO PLATA SAMANÁ
+## LA ALTAGRACIA                             
+## MARÍA TRINIDAD SÁNCHEZ                    
+## PUERTO PLATA                              
+## SAMANÁ                          9.4       
+## SAN JUAN                        2.8   11.1
+## 
+## $`Conjunto 3`
+##                    DAJABÓN HERMANAS MIRABAL SAN JUAN SANTIAGO
+## HERMANAS MIRABAL      11.6                                   
+## SAN JUAN               6.7             17.7                  
+## SANTIAGO               9.0             19.4      5.9         
+## SANTIAGO RODRÍGUEZ    12.3             22.2     10.1      5.1
+## VALVERDE              18.3             10.5     23.4     27.0
+##                    SANTIAGO RODRÍGUEZ
+## HERMANAS MIRABAL                     
+## SAN JUAN                             
+## SANTIAGO                             
+## SANTIAGO RODRÍGUEZ                   
+## VALVERDE                         30.5
+## 
+## $`Conjunto 4`
+##                  BAORUCO ESPAILLAT SANTIAGO VALVERDE MONSEÑOR NOUEL
+## ESPAILLAT           19.2                                           
+## SANTIAGO            24.4       9.2                                 
+## VALVERDE             7.8      20.6     27.0                        
+## MONSEÑOR NOUEL      19.5       7.2      5.1     22.3               
+## SAN JOSÉ DE OCOA    30.1      14.7      6.2     33.1           10.9
+## 
+## $`Conjunto 5`
+##                    ELÍAS PIÑA EL SEIBO ESPAILLAT INDEPENDENCIA HERMANAS MIRABAL
+## EL SEIBO                 19.1                                                  
+## ESPAILLAT                15.1      7.1                                         
+## INDEPENDENCIA            22.6     13.1      16.6                               
+## HERMANAS MIRABAL         25.5      8.3      11.4          14.4                 
+## SANTIAGO RODRÍGUEZ        6.0     16.1      11.0          22.8             22.2
+## 
+## $`Conjunto 6`
+##                        BARAHONA ELÍAS PIÑA LA ALTAGRACIA MARÍA TRINIDAD SÁNCHEZ
+## ELÍAS PIÑA                 12.4                                                
+## LA ALTAGRACIA              51.4       62.5                                     
+## MARÍA TRINIDAD SÁNCHEZ     26.0       36.7          25.9                       
+## PERAVIA                     9.9       19.0          43.8                   18.0
+## SAN CRISTÓBAL               9.6        7.3          56.1                   30.4
+##                        PERAVIA
+## ELÍAS PIÑA                    
+## LA ALTAGRACIA                 
+## MARÍA TRINIDAD SÁNCHEZ        
+## PERAVIA                       
+## SAN CRISTÓBAL             12.7
+## 
+## $`Conjunto 7`
+##               ELÍAS PIÑA ESPAILLAT INDEPENDENCIA LA ROMANA LA VEGA
+## ESPAILLAT           15.1                                          
+## INDEPENDENCIA       22.6      16.6                                
+## LA ROMANA           67.0      53.3          48.0                  
+## LA VEGA             16.1       5.8          14.1      51.8        
+## MONTE CRISTI        49.4      36.3          30.0      18.3    34.5
+## 
+## $`Conjunto 8`
+##                      ESPAILLAT INDEPENDENCIA SAN CRISTÓBAL SAN PEDRO DE MACORÍS
+## INDEPENDENCIA             16.6                                                 
+## SAN CRISTÓBAL              8.1          19.1                                   
+## SAN PEDRO DE MACORÍS      64.0          58.2          71.2                     
+## VALVERDE                  20.6          14.1          26.7                 46.3
+## MONSEÑOR NOUEL             7.2          14.2           5.7                 66.8
+##                      VALVERDE
+## INDEPENDENCIA                
+## SAN CRISTÓBAL                
+## SAN PEDRO DE MACORÍS         
+## VALVERDE                     
+## MONSEÑOR NOUEL           22.3
+## 
+## $`Conjunto 9`
+##               AZUA DUARTE ELÍAS PIÑA SAN CRISTÓBAL SANTIAGO
+## DUARTE        40.9                                         
+## ELÍAS PIÑA     8.8   49.1                                  
+## SAN CRISTÓBAL  5.5   42.6        7.3                       
+## SANTIAGO       4.5   42.9        6.5           2.1         
+## VALVERDE      24.1   20.3       32.6          26.7     27.0
+## 
+## $`Conjunto 10`
+##              DAJABÓN EL SEIBO LA ROMANA LA VEGA PUERTO PLATA
+## EL SEIBO         5.1                                        
+## LA ROMANA       52.7     48.9                               
+## LA VEGA          6.6      9.2      51.8                     
+## PUERTO PLATA     5.7     10.4      57.2     8.7             
+## MONTE PLATA     10.1      6.4      46.0    10.9         15.2</code></pre>
 </div>
 <div id="mandato." class="section level2">
 <h2><strong>Mandato</strong>.</h2>
@@ -3174,7 +1867,7 @@ MONTE PLATA
 <p>Ten presente un aspecto importante. El Tali te provee la matriz de distancias entre los 15 pares posibles para que realices el agrupamiento. Sin embargo, el Tali también te pide, en el punto 1. que, a modo de prueba, calcules la distancia euclidiana para dos pares de provincias elegidos al azar de entre los 15 posibles. Más detalles abajo.</p>
 </blockquote>
 <ol>
-<li><p>Usando los datos generados a partir de <span class="citation">Martínez-Batlle (2022)</span>, para el conjunto que te tocó, obtén la distancia euclidiana entre dos pares de provincias elegidos por ti al azar (par A y par B), de los 15 posibles que tiene tu matriz de distancias. Haz este cálculo usando todas las dimensiones disponibles (diez en total). Ten presente que, para incluir las diez dimensiones, deberás usar la fórmula provista, la cual considera un espacio n-dimensional. Es recomendable que, para los cálculos, redondees a dos cifras significativas. Esto tiene doble propósito: a) Comprobar la precisión del algoritmo distancias; b) Medir tu rendimiento calculando distancias en un n-dimensional.</p></li>
+<li><p>Usando los datos generados a partir de <span class="citation">Martínez-Batlle (2022)</span>, para el conjunto que te tocó, obtén la distancia euclidiana entre un par de provincias elegidos por ti al azar; es decir, un par de entre los 15 posibles que tiene tu matriz de distancias. Haz este cálculo usando todas las dimensiones disponibles (diez en total). Ten presente que, para incluir las diez dimensiones, deberás usar la fórmula provista, la cual considera un espacio n-dimensional. Es recomendable que, para los cálculos, redondees a dos cifras significativas. Esto tiene doble propósito: a) Comprobar la precisión del algoritmo distancias; b) Medir tu rendimiento calculando distancias en un n-dimensional.</p></li>
 <li><p>Aplica el método de agrupamiento jerárquico aglomerativo promedio no ponderado (UPGMA) para agrupar las provincias según sus formas predominantes, usando la matriz de distancias provista.</p></li>
 <li><p>Redacta, en un máximo de cuatro párrafos, lo siguiente:</p></li>
 </ol>
@@ -3188,6 +1881,363 @@ MONTE PLATA
 </div>
 <div id="ejemplo-práctico" class="section level1">
 <h1>Ejemplo práctico</h1>
+<p>En el aula.</p>
+<ol>
+<li>Calcular distancia entre dos provincias.</li>
+</ol>
+<p>Para calcular la distancia entre dos provincias cualquiera utilizando las diez dimensiones proporcionadas (las columnas de distribución porcentual de las formas del terreno), se puede utilizar la <strong>distancia euclidiana</strong> en un espacio n-dimensional. La fórmula para calcular la distancia euclidiana entre dos puntos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> en un espacio de <span class="math inline">\(n\)</span> dimensiones es:</p>
+<p><span class="math display">\[
+d(A, B) = \sqrt{\sum_{i=1}^{n} (x_{i} - y_{i})^2}
+\]</span></p>
+<p>donde:
+- <span class="math inline">\(d(A, B)\)</span> es la distancia euclidiana entre los puntos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span>.
+- <span class="math inline">\(x_{i}\)</span> y <span class="math inline">\(y_{i}\)</span> son las coordenadas (en este caso, los porcentajes de cada forma del terreno) de los puntos <span class="math inline">\(A\)</span> y <span class="math inline">\(B\)</span> en la dimensión <span class="math inline">\(i\)</span>.
+- <span class="math inline">\(n = 10\)</span>, que corresponde al número de dimensiones o variables consideradas.</p>
+<ul>
+<li>Ejemplo de cálculo:</li>
+</ul>
+<p>Vamos a calcular la distancia euclidiana entre las provincias <strong>BAORUCO</strong> e <strong>INDEPENDENCIA</strong>:</p>
+<table>
+<colgroup>
+<col width="32%" />
+<col width="20%" />
+<col width="26%" />
+<col width="20%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Proporción de forma del terreno</th>
+<th align="right">BAORUCO (<span class="math inline">\(x_i\)</span>)</th>
+<th align="right">INDEPENDENCIA (<span class="math inline">\(y_i\)</span>)</th>
+<th align="right"><span class="math inline">\((x_i - y_i)^2\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Llanura</td>
+<td align="right">28.09</td>
+<td align="right">20.53</td>
+<td align="right"><span class="math inline">\((28.09 - 20.53)^2 = 57.35\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Depresión/sima</td>
+<td align="right">0.18</td>
+<td align="right">0.26</td>
+<td align="right"><span class="math inline">\((0.18 - 0.26)^2 = 0.0064\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Pico</td>
+<td align="right">0.61</td>
+<td align="right">0.63</td>
+<td align="right"><span class="math inline">\((0.61 - 0.63)^2 = 0.0004\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Cresta (interfluvio no inclinado)</td>
+<td align="right">6.66</td>
+<td align="right">6.41</td>
+<td align="right"><span class="math inline">\((6.66 - 6.41)^2 = 0.0625\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Hombrera</td>
+<td align="right">1.54</td>
+<td align="right">1.46</td>
+<td align="right"><span class="math inline">\((1.54 - 1.46)^2 = 0.0064\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Gajo (interfluvio inclinado)</td>
+<td align="right">12.39</td>
+<td align="right">13.12</td>
+<td align="right"><span class="math inline">\((12.39 - 13.12)^2 = 0.5329\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Vertiente</td>
+<td align="right">29.65</td>
+<td align="right">37.19</td>
+<td align="right"><span class="math inline">\((29.65 - 37.19)^2 = 56.7121\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Vaguada</td>
+<td align="right">10.87</td>
+<td align="right">10.55</td>
+<td align="right"><span class="math inline">\((10.87 - 10.55)^2 = 0.1024\)</span></td>
+</tr>
+<tr class="odd">
+<td align="left">Piedemonte</td>
+<td align="right">2.60</td>
+<td align="right">3.16</td>
+<td align="right"><span class="math inline">\((2.60 - 3.16)^2 = 0.3136\)</span></td>
+</tr>
+<tr class="even">
+<td align="left">Valle</td>
+<td align="right">7.41</td>
+<td align="right">6.69</td>
+<td align="right"><span class="math inline">\((7.41 - 6.69)^2 = 0.5184\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Sumamos todas las diferencias al cuadrado:</p>
+<p><span class="math display">\[
+\sum_{i=1}^{10} (x_{i} - y_{i})^2 = 57.35 + 0.0064 + 0.0004 + 0.0625 + 0.0064 + 0.5329 + 56.7121 + 0.1024 + 0.3136 + 0.5184 = 115.61
+\]</span></p>
+<p>Luego, tomamos la raíz cuadrada de esta suma para obtener la distancia euclidiana:</p>
+<p><span class="math display">\[
+d(\text{BAORUCO, INDEPENDENCIA}) = \sqrt{115.61} \approx 10.75
+\]</span></p>
+<ul>
+<li>Resultado</li>
+</ul>
+<p>La distancia euclidiana entre las provincias <strong>BAORUCO</strong> e <strong>INDEPENDENCIA</strong> es aproximadamente <strong>10.75</strong> unidades porcentuales. Esta distancia representa la magnitud de la diferencia en la distribución de formas del terreno entre las dos provincias consideradas.</p>
+<ol start="2">
+<li>Aplicar el método UPGMA</li>
+</ol>
+<p>Para realizar un agrupamiento jerárquico utilizando el método de agrupamiento jerárquico aglomerativo promedio no ponderado (UPGMA), seguimos un enfoque iterativo que consiste en agrupar los pares de elementos o clusters más cercanos hasta que todos los elementos estén en un único cluster. UPGMA utiliza las distancias promedio entre todos los miembros de los clusters para calcular la distancia entre clusters. <a href="https://www.youtube.com/watch?v=RdT7bhm1M3E">Este vídeo</a> también podría resultarte útil, aunque en el vídeo, la instructora se basa en el vínculo simple, no en el promedio; es decir, ella, en lugar de obtener promedios a la hora de recalcular la matriz de distancias, lo que obtiene son valores mínimos, pero en nuestro casos serían promedios.</p>
+<ul>
+<li>Matriz de Distancias Inicial</li>
+</ul>
+<p>Dado el conjunto de datos:</p>
+<table>
+<colgroup>
+<col width="20%" />
+<col width="7%" />
+<col width="12%" />
+<col width="19%" />
+<col width="11%" />
+<col width="14%" />
+<col width="14%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>BAORUCO</th>
+<th>INDEPENDENCIA</th>
+<th>MARÍA TRINIDAD SÁNCHEZ</th>
+<th>MONTE CRISTI</th>
+<th>HERMANAS MIRABAL</th>
+<th>SAN JOSÉ DE OCOA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>INDEPENDENCIA</strong></td>
+<td>10.7</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>MARÍA TRINIDAD SÁNCHEZ</strong></td>
+<td>9.4</td>
+<td>18.9</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>MONTE CRISTI</strong></td>
+<td>20.4</td>
+<td>30.0</td>
+<td>12.9</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td><strong>HERMANAS MIRABAL</strong></td>
+<td>10.5</td>
+<td>14.4</td>
+<td>12.2</td>
+<td>25.0</td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td><strong>SAN JOSÉ DE OCOA</strong></td>
+<td>30.1</td>
+<td>24.0</td>
+<td>36.7</td>
+<td>49.3</td>
+<td>25.3</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Paso 1: Encuentra el par con la distancia más pequeña</p></li>
+<li><p>El par con la distancia más pequeña es <strong>BAORUCO</strong> y <strong>MARÍA TRINIDAD SÁNCHEZ</strong> con una distancia de 9.4.</p></li>
+<li><p>Paso 2: Agrupa los elementos más cercanos</p></li>
+<li><p>Agrupamos <strong>BAORUCO</strong> y <strong>MARÍA TRINIDAD SÁNCHEZ</strong> en un nuevo cluster (B-MTS).</p></li>
+<li><p>Calculamos la distancia entre este nuevo cluster (B-MTS) y los otros elementos utilizando el promedio de las distancias:</p></li>
+</ul>
+<p><span class="math display">\[
+\text{Distancia}(B-MTS, \text{INDEPENDENCIA}) = \frac{10.7 + 18.9}{2} = 14.8
+\]</span></p>
+<p><span class="math display">\[
+\text{Distancia}(B-MTS, \text{MONTE CRISTI}) = \frac{20.4 + 12.9}{2} = 16.65
+\]</span></p>
+<p><span class="math display">\[
+\text{Distancia}(B-MTS, \text{HERMANAS MIRABAL}) = \frac{10.5 + 12.2}{2} = 11.35
+\]</span></p>
+<p><span class="math display">\[
+\text{Distancia}(B-MTS, \text{SAN JOSÉ DE OCOA}) = \frac{30.1 + 36.7}{2} = 33.4
+\]</span></p>
+<ul>
+<li>Nueva matriz de distancias:</li>
+</ul>
+<table>
+<colgroup>
+<col width="12%" />
+<col width="8%" />
+<col width="18%" />
+<col width="17%" />
+<col width="21%" />
+<col width="21%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>B-MTS</th>
+<th>INDEPENDENCIA</th>
+<th>MONTE CRISTI</th>
+<th>HERMANAS MIRABAL</th>
+<th>SAN JOSÉ DE OCOA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>B-MTS</strong></td>
+<td></td>
+<td>14.8</td>
+<td>16.65</td>
+<td>11.35</td>
+<td>33.4</td>
+</tr>
+<tr class="even">
+<td><strong>INDEPENDENCIA</strong></td>
+<td>14.8</td>
+<td></td>
+<td>30.0</td>
+<td>14.4</td>
+<td>24.0</td>
+</tr>
+<tr class="odd">
+<td><strong>MONTE CRISTI</strong></td>
+<td>16.65</td>
+<td>30.0</td>
+<td></td>
+<td>25.0</td>
+<td>49.3</td>
+</tr>
+<tr class="even">
+<td><strong>HERMANAS MIRABAL</strong></td>
+<td>11.35</td>
+<td>14.4</td>
+<td>25.0</td>
+<td></td>
+<td>25.3</td>
+</tr>
+<tr class="odd">
+<td><strong>SAN JOSÉ DE OCOA</strong></td>
+<td>33.4</td>
+<td>24.0</td>
+<td>49.3</td>
+<td>25.3</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>Paso 3: Encuentra el Siguiente Par con la Distancia más Pequeña</p></li>
+<li><p>El par con la distancia más pequeña es <strong>B-MTS</strong> y <strong>HERMANAS MIRABAL</strong> con una distancia de 11.35.</p></li>
+<li><p>Paso 4: Agrupa el Nuevo Cluster</p></li>
+<li><p>Agrupamos <strong>B-MTS</strong> y <strong>HERMANAS MIRABAL</strong> en un nuevo cluster (B-MTS-HM).</p></li>
+<li><p>Calculamos la distancia entre el nuevo cluster (B-MTS-HM) y los otros elementos:</p></li>
+</ul>
+<p><span class="math display">\[
+\text{Distancia}(B-MTS-HM, \text{INDEPENDENCIA}) = \frac{14.8 + 14.4}{2} = 14.6
+\]</span></p>
+<p><span class="math display">\[
+\text{Distancia}(B-MTS-HM, \text{MONTE CRISTI}) = \frac{16.65 + 25.0}{2} = 20.825
+\]</span></p>
+<p><span class="math display">\[
+\text{Distancia}(B-MTS-HM, \text{SAN JOSÉ DE OCOA}) = \frac{33.4 + 25.3}{2} = 29.35
+\]</span></p>
+<ul>
+<li>Nueva matriz de distancias:</li>
+</ul>
+<table style="width:100%;">
+<colgroup>
+<col width="14%" />
+<col width="14%" />
+<col width="22%" />
+<col width="20%" />
+<col width="26%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th></th>
+<th>B-MTS-HM</th>
+<th>INDEPENDENCIA</th>
+<th>MONTE CRISTI</th>
+<th>SAN JOSÉ DE OCOA</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>B-MTS-HM</strong></td>
+<td></td>
+<td>14.6</td>
+<td>20.825</td>
+<td>29.35</td>
+</tr>
+<tr class="even">
+<td><strong>INDEPENDENCIA</strong></td>
+<td>14.6</td>
+<td></td>
+<td>30.0</td>
+<td>24.0</td>
+</tr>
+<tr class="odd">
+<td><strong>MONTE CRISTI</strong></td>
+<td>20.825</td>
+<td>30.0</td>
+<td></td>
+<td>49.3</td>
+</tr>
+<tr class="even">
+<td><strong>SAN JOSÉ DE OCOA</strong></td>
+<td>29.35</td>
+<td>24.0</td>
+<td>49.3</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Paso 5: Repite el Proceso Hasta Que Todos los Elementos Sean Agrupados</li>
+</ul>
+<ol>
+<li><p>Agrupa <strong>B-MTS-HM</strong> y <strong>INDEPENDENCIA</strong> (distancia de 14.6).</p></li>
+<li><p>Continúa agrupando siguiendo el mismo proceso iterativo hasta que todas las provincias estén en un solo cluster.</p></li>
+</ol>
+<ul>
+<li>Dendrograma</li>
+</ul>
+<p>El resultado final de este proceso se puede representar mediante un dendrograma, que muestra la estructura jerárquica de los agrupamientos:</p>
+<pre><code>           +--------- SAN JOSÉ DE OCOA
+           |
+           |       +--- MONTE CRISTI
+           |-------+
+           |       |
++----------+       +--- (BAORUCO, MARÍA TRINIDAD SÁNCHEZ, HERMANAS MIRABAL)
+|
++----------------- INDEPENDENCIA</code></pre>
+<ul>
+<li>Conclusión</li>
+</ul>
+<p>Este procedimiento de UPGMA nos permite agrupar las provincias en función de sus similitudes geomorfológicas basadas en la distancia euclidiana de sus características. Esto ayuda a identificar patrones de distribución de formas del terreno y a realizar análisis comparativos entre diferentes unidades territoriales.</p>
 </div>
 <div id="cómo-se-haría-el-ejemplo-práctico-en-r" class="section level1">
 <h1>¿Cómo se haría el ejemplo práctico en R?</h1>
