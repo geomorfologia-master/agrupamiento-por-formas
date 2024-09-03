@@ -51,33 +51,37 @@ if (grepl('gfm', output_format)) {
 
 # Introducción
 
-<!-- Qué son los DEM, cómo se obtienen, y qué importancia tienen (puedes citar a @hengl2008geomorphometry). -->
-
-<!-- Qué son las técnicas de clasificación de formas del terreno (e.g. los geomórfonos), que se basan en DEM, citando a @hengl2008geomorphometry, @jasiewicz2013geomorphons -->
-
-<!-- Qué son las técnicas de análisis de agrupamiento (UPGMA, etc), qué utilidad tienen @borcard_numerical_2018, -->
-
-<!-- Una vez clasificados los elementos, cómo estas clasificaciones podrían ayudar a caracterizar más fácilmente y con técnicas estadísticas, unidades convencionales o físicas (@triola2012estadistica parte estadística). -->
-
-<!-- Utilidad de la clasificación del relieve, qué problema se resuelve con ellos. -->
-
-<!-- Cómo se pueden agrupar unidades como provincias, regiones o municipios, en función de la distribución porcentual de formas del terreno usando UPGMA, usando los datos de @jose_ramon_martinez_batlle_2022_7367180. -->
-
-<!-- Qué aportes dan para el conjunto de la ciencia. -->
-
-
-### Introducción
-
-Los Modelos Digitales de Elevación (DEM, por sus siglas en inglés) son representaciones digitales del relieve terrestre, obtenidas a partir de diversos métodos, como el levantamiento topográfico, la teledetección o el uso de sistemas de información geográfica (SIG) que permiten modelar la superficie del terreno en tres dimensiones. Los DEM son fundamentales en geomorfología y otras ciencias de la Tierra, ya que facilitan el análisis de formas del relieve y ayudan a identificar patrones geomorfológicos mediante técnicas cuantitativas [@hengl2008geomorphometry].
+Los Modelos Digitales de Elevación (DEM, por sus siglas en inglés) son representaciones digitales del relieve terrestre, obtenidas a partir de diversos métodos, como el levantamiento topográfico, la teledetección o el uso de sistemas de información geográfica (SIG) que permiten modelar la superficie del terreno en tres dimensiones, o permiten representaciones "2.5D" (superficie que tiene una apariencia tridimensional, pero en realidad no es un modelo 3D completo). Los DEM son fundamentales en geomorfología y otras ciencias de la Tierra, ya que facilitan el análisis de formas del relieve y ayudan a identificar patrones geomorfológicos mediante técnicas cuantitativas [@hengl2008geomorphometry].
 
 Las técnicas de clasificación de formas del terreno, como los geomórfonos, se basan en la información proporcionada por los DEM para identificar y categorizar características del relieve. Estas técnicas permiten diferenciar unidades geomorfológicas y facilitan la comprensión de la distribución espacial de las formas del terreno, proporcionando una base sólida para análisis más detallados en estudios geográficos y geológicos [@hengl2008geomorphometry; @jasiewicz2013geomorphons].
 
-El análisis de agrupamiento, como el método de agrupamiento jerárquico aglomerativo promedio no ponderado (UPGMA), se utiliza para clasificar elementos en grupos homogéneos en función de sus características, facilitando la identificación de patrones y relaciones entre diferentes unidades territoriales. Este método es útil en diversos campos, desde la biología hasta la geografía, para agrupar elementos con características similares [@borcard_numerical_2018].
+El análisis de agrupamiento, que incluye muchos métodos, siendo uno muy usado el método de agrupamiento jerárquico aglomerativo promedio no ponderado o UPGMA (siglas en inglés de *Unweighted Pair Group Method with Arithmetic Mean*), se utiliza para clasificar elementos en grupos homogéneos en función de sus características, facilitando la identificación de patrones y relaciones entre diferentes unidades territoriales. Este método es útil en diversos campos, desde la biología hasta la geografía, para agrupar elementos con características similares [@borcard_numerical_2018].
 
-Una vez clasificadas las unidades geomorfológicas, como provincias o regiones, estas clasificaciones pueden facilitar su caracterización mediante técnicas estadísticas, simplificando la comparación y el análisis de unidades convencionales o físicas [@triola2012estadistica]. La utilidad de estas clasificaciones radica en que permiten resolver problemas como la identificación de zonas vulnerables a desastres naturales, la planificación del uso del suelo y la conservación ambiental, entre otros. Por ejemplo, las provincias de la República Dominicana pueden agruparse según la distribución porcentual de formas del terreno utilizando el método UPGMA, lo que proporciona una perspectiva científica valiosa para diversos estudios geográficos y ambientales [@jose_ramon_martinez_batlle_2022_7367180].
+Dispones de la distribución porcentual de las formas del terreno por provincias, según lo publicado por @jose_ramon_martinez_batlle_2022_7367180. Las columnas de distribución porcentual son los atributos y las provincias las observaciones. Con esta caracterízación de las provincias según formas del terreno empleando técnicas de aprendizaje o clasificación, como el análisis de agrupamiento, puedes simplificar la comparación y el análisis de unidades convencionales o físicas.
+
+La utilidad de estas clasificaciones radica en que permiten caracterizar mejor, estadísticamente, las unidades de estudio [@triola2012estadistica], y contribuyen a resolver problemas como la identificación de zonas vulnerables a desastres naturales, la planificación del uso del suelo y la conservación ambiental, entre otros. Por ejemplo, las provincias de la República Dominicana pueden agruparse según la distribución porcentual de formas del terreno utilizando el método UPGMA, lo que proporciona una perspectiva científica valiosa para diversos estudios geográficos y ambientales.
+
+Para realizar el análisis de agrupamiento, primero necesitamos definir una métrica de distancia que cuantifique la similitud o disimilitud entre las observaciones (en el ejemplo hipotético puesto en el párrafo anterior, serían provincias). Una métrica comúnmente utilizada es la **distancia euclidiana**, que para dos observaciones \( \mathbf{x}_i = (x_{i1}, x_{i2}, \ldots, x_{iM}) \) y \( \mathbf{x}_j = (x_{j1}, x_{j2}, \ldots, x_{jM}) \) se define como:
+
+\[
+d(\mathbf{x}_i, \mathbf{x}_j) = \sqrt{\sum_{k=1}^{M} (x_{ik} - x_{jk})^2}
+\]
+
+donde \( x_{ik} \) y \( x_{jk} \) son los valores de los atributos \( k \) para las observaciones \( i \) y \( j \), respectivamente. Esta métrica permite calcular la distancia entre todas las combinaciones posibles de observaciones, generando una **matriz de distancias** de tamaño \( N \times N \), donde \( N \) es el número de observaciones, aunque el número de observaciones únicas sería \( \frac{N \times (N-1)}{2} \).
+
+Con esta matriz de distancias, podemos aplicar un algoritmo de agrupamiento jerárquico como el UPGMA, que forma grupos o "clusters" de observaciones similares siguiendo un enfoque aglomerativo. Este método comienza tratando cada observación como un cluster individual y, en cada paso, fusiona los dos clusters más cercanos según la distancia promedio entre todas las observaciones de los clusters. La distancia entre dos clusters \( C_a \) y \( C_b \) se calcula como:
+
+\[
+d(C_a, C_b) = \frac{1}{|C_a| |C_b|} \sum_{x_i \in C_a} \sum_{x_j \in C_b} d(x_i, x_j)
+\]
+
+donde \( |C_a| \) y \( |C_b| \) son los tamaños de los clusters \( C_a \) y \( C_b \), y \( d(x_i, x_j) \) es la distancia entre las observaciones \( x_i \) y \( x_j \).
+
+Este proceso de fusión continúa hasta que todas las observaciones se agrupan en un único cluster, produciendo un dendrograma que visualiza la jerarquía de los agrupamientos. El dendrograma facilita la interpretación de los patrones de similitud entre las observaciones, permitiendo identificar agrupamientos naturales de provincias con características geomorfológicas similares.
+
+Al aplicar el método UPGMA a los datos de distribución porcentual de las formas del terreno, podemos descubrir patrones geoespaciales significativos, identificar unidades territoriales homogéneas y realizar análisis detallados de la estructura del relieve a nivel regional. Esta técnica permite simplificar la complejidad de los datos geográficos, brindando una herramienta poderosa para estudios ambientales, planificación del uso del suelo, y mitigación de riesgos asociados a fenómenos naturales.
 
 En resumen, las técnicas de clasificación y agrupamiento de formas del terreno no solo contribuyen a la ciencia al facilitar la comprensión del paisaje, sino que también aportan herramientas prácticas para la gestión del territorio y la planificación ambiental.
-
 
 # Ejercicio. Clasificar 6 provincias dominicanas según sus formas predominantes por el método de agrupamiento jerárquico aglomerativo promedio no ponderado (UPGMA)
 
@@ -88,9 +92,11 @@ Agrupar las provincias de la República Dominicana según sus formas predominant
 
 ## Planteamiento del Problema
 
-Se dispone de un conjunto de datos de @jose_ramon_martinez_batlle_2022_7367180, que describe la distribución porcentual de las formas del terreno en diferentes provincias de la República Dominicana, basado en un modelo digital de elevación (DEM) y clasificaciones de formas del terreno usando geomórfonos [@jasiewicz2013geomorphons]. Se busca utilizar estos datos para realizar un agrupamiento de las provincias según sus características geomorfológicas predominantes, aplicando el método de agrupamiento jerárquico UPGMA. Este agrupamiento permitirá identificar similitudes y diferencias entre las provincias, facilitando el análisis y la comprensión de los patrones del relieve a nivel regional.
+Se dispone de un conjunto de datos generados por @jose_ramon_martinez_batlle_2022_7367180, que describe la distribución porcentual de las formas del terreno en diferentes provincias de la República Dominicana, basado en un modelo digital de elevación (DEM) y clasificaciones de formas del terreno usando geomórfonos [@jasiewicz2013geomorphons]. Se busca utilizar estos datos para realizar un agrupamiento de las provincias según sus características geomorfológicas predominantes, aplicando el método de agrupamiento jerárquico UPGMA. Este agrupamiento permitirá identificar similitudes y diferencias entre las provincias, facilitando el análisis y la comprensión de los patrones del relieve a nivel regional.
 
 ## Obtención de los datos
+
+> En lo adelante, se incluyen varios bloques de código. En la versión HTML, estos aparecen ocultos por defecto. Si deseas verlos, presiona el botón `Show`.
 
 1. Cargar datos fuente. Los datos fuente proceden de @jose_ramon_martinez_batlle_2022_7367180.
 
@@ -116,7 +122,7 @@ prov <- st_read('data/provincias-geomorfonos.gpkg', quiet = T) %>%
 # prov %>% st_drop_geometry() %>% select(-base, -nombre) %>% rowSums()
 ```
 
-Una representación cartográfica te ayudará a ver el conjunto en el país.
+Una representación cartográfica te ayudará a ver las distribuciones porcentuales a lo largo del país.
 
 ```{r}
 prov %>% select(-matches('base')) %>%
@@ -138,7 +144,7 @@ prov %>% select(-matches('base')) %>%
     legend.frame = FALSE)
 ```
 
-2. **Creación de los 10 conjuntos** (reserva el conjunto 1 al Tali). Se han creado diez conjuntos de seis provincias elegidas al azar utilizando sus nombres con el siguiente código de R (si no lo ves, presiona el botón `Show`).
+2. **Creación de los 10 conjuntos** (reserva el conjunto 1 al Tali). Se han creado diez conjuntos de seis provincias elegidas al azar utilizando sus nombres.
 
 ```{r}
 set.seed(123)
@@ -149,7 +155,7 @@ df %>%
   knitr::kable()
 ```
 
-3. **Presentación de los datos crudos de cada uno de los diez conjuntos**. Esta matriz contiene el porcentaje de la superifice provincial ocupada por cada forma del terreno. Con esta matriz podrás hacer cálculos de distancias.
+3. **Presentación de los datos crudos de cada uno de los diez conjuntos**. Esta matriz contiene el porcentaje de la superifice provincial ocupada por cada forma del terreno. Con esta matriz podrás hacer un cálculo de distancia (parte 1 del mandato, que verás en la siguiente sección).
 
 ```{r}
 conjuntos_l <- sapply(1:ncol(replicas),
@@ -177,26 +183,31 @@ for (tabla in 1:length(conjuntos_l_k)) {
 }
 ```
 
-4. **Generación de la matriz de distancias de cada uno de los diez conjuntos**. Esta es la matriz de distancias con la que podrás realizar el agrupamiento jerárquico UPGMA, y podrás comprobar tus cálculos de distancias seleccionados.
+4. **Generación de la matriz de distancias de cada uno de los diez conjuntos**. Esta es la matriz de distancias con la que podrás realizar el agrupamiento jerárquico UPGMA (parte 2 del mandato, que verás en la siguiente sección).
 
-
-```{r}
+```{r, results='asis'}
 # Mostrar las matrices de distancia
 print(sapply(
   conjuntos_l,
-  function(x)
-    x %>% as.data.frame() %>% column_to_rownames('nombre') %>% dist,
-  simplify = F),
-  digits = 2)
+  function(x) {
+    x %>%
+      as.data.frame() %>%
+      column_to_rownames('nombre') %>%
+      dist(diag = T, upper = T) %>% 
+      as.matrix() %>% 
+      as.data.frame() %>% 
+      knitr::kable(digits = 2, align = 'c')
+  },
+  simplify = F))
 ```
 
 ## **Mandato**.
 
-> Ten presente un aspecto importante. El Tali te provee la matriz de distancias entre los 15 pares posibles para que realices el agrupamiento. Sin embargo, el Tali también te pide, en el punto 1. que, a modo de prueba, calcules la distancia euclidiana para dos pares de provincias elegidos al azar de entre los 15 posibles. Más detalles abajo.
+> Ten presente un aspecto importante. El Tali te provee la matriz de distancias para que realices el agrupamiento (parte 2 de este mandato). Sin embargo, el Tali también te pide, en la parte 1 de este mandato que, a modo de prueba, calcules la distancia euclidiana para dos pares de provincias elegidos al azar de entre los 15 posibles. Esto tiene por objetivo que puedas medir tu rendimiento en el cálculo de distancias en un espacio n-dimensional.
 
-1. Usando los datos generados a partir de @jose_ramon_martinez_batlle_2022_7367180, para el conjunto que te tocó, obtén la distancia euclidiana entre un par de provincias elegidos por ti al azar; es decir, un par de entre los 15 posibles que tiene tu matriz de distancias. Haz este cálculo usando todas las dimensiones disponibles (diez en total). Ten presente que, para incluir las diez dimensiones, deberás usar la fórmula provista, la cual considera un espacio n-dimensional. Es recomendable que, para los cálculos, redondees a dos cifras significativas. Esto tiene doble propósito: a) Comprobar la precisión del algoritmo distancias; b) Medir tu rendimiento calculando distancias en un n-dimensional.
+1. Usando los datos generados por @jose_ramon_martinez_batlle_2022_7367180, para el conjunto que te tocó (recuerda reservar el conjunto 1 al Tali), obtén la distancia euclidiana entre un par de provincias elegidas por ti al azar (tienes que analizar 6 provincias, elige un par al azar). Haz este cálculo usando todas las dimensiones (atributos) disponibles (diez en total). Ten presente que, para incluir las diez dimensiones, deberás usar la fórmula generalizada de la distancia que verás en el ejemplo práctico, la cual considera un espacio n-dimensional (es decir, sumando los cuadrados de las diferencias entre sus coordenadas correspondientes en cada una de las diez dimensiones, y tomando la raíz cuadrada del resultado). Esta parte del ejercicio tiene triple propósito: a) Verificar tu rendimiento para calcular distancias en un espacio n-dimensional, donde n>3; b) Comprobar la precisión del algoritmo distancias; c) Medir tu rendimiento calculando distancias en un n-dimensional. Es recomendable que, para los cálculos, redondees a dos cifras significativas. Verifica que tu cálculo da próximo al generado en la matriz de distancias.
 
-2. Aplica el método de agrupamiento jerárquico aglomerativo promedio no ponderado (UPGMA) para agrupar las provincias según sus formas predominantes, usando la matriz de distancias provista.
+2. Aplica el método de agrupamiento jerárquico aglomerativo promedio no ponderado (UPGMA) para agrupar las provincias según sus formas predominantes, usando la matriz de distancias provista arriba.
 
 3. Redacta, en un máximo de cuatro párrafos, lo siguiente:
 
@@ -207,9 +218,7 @@ print(sapply(
 
 # Ejemplo práctico
 
-En el aula.
-
-1. Calcular distancia entre dos provincias.
+## Parte 1. Calcular distancia entre dos provincias.
 
 Para calcular la distancia entre dos provincias cualquiera utilizando las diez dimensiones proporcionadas (las columnas de distribución porcentual de las formas del terreno), se puede utilizar la **distancia euclidiana** en un espacio n-dimensional. La fórmula para calcular la distancia euclidiana entre dos puntos \( A \) y \( B \) en un espacio de \( n \) dimensiones es:
 
@@ -255,13 +264,24 @@ d(\text{BAORUCO, INDEPENDENCIA}) = \sqrt{115.61} \approx 10.75
 
 La distancia euclidiana entre las provincias **BAORUCO** e **INDEPENDENCIA** es aproximadamente **10.75** unidades porcentuales. Esta distancia representa la magnitud de la diferencia en la distribución de formas del terreno entre las dos provincias consideradas.
 
-2. Aplicar el método UPGMA
+## Parte 2. Aplicar el método UPGMA
 
 Para realizar un agrupamiento jerárquico utilizando el método de agrupamiento jerárquico aglomerativo promedio no ponderado (UPGMA), seguimos un enfoque iterativo que consiste en agrupar los pares de elementos o clusters más cercanos hasta que todos los elementos estén en un único cluster. UPGMA utiliza las distancias promedio entre todos los miembros de los clusters para calcular la distancia entre clusters. [Este vídeo](https://www.youtube.com/watch?v=RdT7bhm1M3E) también podría resultarte útil, aunque en el vídeo, la instructora se basa en el vínculo simple, no en el promedio; es decir, ella, en lugar de obtener promedios a la hora de recalcular la matriz de distancias, lo que obtiene son valores mínimos, pero en nuestro casos serían promedios.
 
-- Matriz de Distancias Inicial
+```{r, echo=F, include=F}
+conjuntos_l_1 <- conjuntos_l[[1]]
+dist_conj_1 <- conjuntos_l_1 %>%
+  as.data.frame() %>%
+  column_to_rownames('nombre') %>%
+  dist
+conj_1_upgma <- hclust(dist_conj_1, method = 'average')
+plot(conj_1_upgma)
+```
 
-Dado el conjunto de datos:
+### Matriz de Distancias Inicial
+
+Dado el conjunto de datos del Conjunto 1:
+
 
 |                         | BAORUCO | INDEPENDENCIA | MARÍA TRINIDAD SÁNCHEZ | MONTE CRISTI | HERMANAS MIRABAL | SAN JOSÉ DE OCOA |
 |-------------------------|---------|---------------|------------------------|--------------|------------------|------------------|
@@ -271,13 +291,15 @@ Dado el conjunto de datos:
 | **HERMANAS MIRABAL**    | 10.5    | 14.4          | 12.2                   | 25.0         |                  |                  |
 | **SAN JOSÉ DE OCOA**    | 30.1    | 24.0          | 36.7                   | 49.3         | 25.3             |                  |
 
-- Paso 1: Encuentra el par con la distancia más pequeña
+### Paso 1: Encuentra el par con la distancia más pequeña
 
-- El par con la distancia más pequeña es **BAORUCO** y **MARÍA TRINIDAD SÁNCHEZ** con una distancia de 9.4.
+- El par con la distancia más pequeña es **BAORUCO** y **MARÍA TRINIDAD SÁNCHEZ** con una distancia de 9.4. Este par forma el primer grupo.
 
-- Paso 2: Agrupa los elementos más cercanos
+### Paso 2: Agrupa los elementos más cercanos
 
 - Agrupamos **BAORUCO** y **MARÍA TRINIDAD SÁNCHEZ** en un nuevo cluster (B-MTS).
+
+![](arbol-paso-1.jpg){width='40%'}
 
 - Calculamos la distancia entre este nuevo cluster (B-MTS) y los otros elementos utilizando el promedio de las distancias:
 
@@ -307,13 +329,15 @@ Dado el conjunto de datos:
 | **HERMANAS MIRABAL** | 11.35 | 14.4 | 25.0        |                  | 25.3             |
 | **SAN JOSÉ DE OCOA** | 33.4 | 24.0 | 49.3         | 25.3             |                  |
 
-- Paso 3: Encuentra el Siguiente Par con la Distancia más Pequeña
+### Paso 3: Encuentra el Siguiente Par con la Distancia más Pequeña
 
 - El par con la distancia más pequeña es **B-MTS** y **HERMANAS MIRABAL** con una distancia de 11.35.
 
-- Paso 4: Agrupa el Nuevo Cluster
+### Paso 4: Agrupa el Nuevo Cluster
 
 - Agrupamos **B-MTS** y **HERMANAS MIRABAL** en un nuevo cluster (B-MTS-HM).
+
+![](arbol-paso-2.jpg){width='40%'}
 
 - Calculamos la distancia entre el nuevo cluster (B-MTS-HM) y los otros elementos:
 
@@ -338,31 +362,25 @@ Dado el conjunto de datos:
 | **MONTE CRISTI** | 20.825| 30.0    |              | 49.3             |
 | **SAN JOSÉ DE OCOA** | 29.35 | 24.0 | 49.3         |                  |
 
-- Paso 5: Repite el Proceso Hasta Que Todos los Elementos Sean Agrupados
+### Paso 5: Repite el Proceso Hasta Que Todos los Elementos Sean Agrupados
 
 1. Agrupa **B-MTS-HM** y **INDEPENDENCIA** (distancia de 14.6).
 
+![](arbol-paso-3.jpg){width='40%'}
+
 2. Continúa agrupando siguiendo el mismo proceso iterativo hasta que todas las provincias estén en un solo cluster.
 
-- Dendrograma
+![](arbol-paso-4.jpg){width='40%'}
+
+### Dendrograma
 
 El resultado final de este proceso se puede representar mediante un dendrograma, que muestra la estructura jerárquica de los agrupamientos:
 
-```
-           +--------- SAN JOSÉ DE OCOA
-           |
-           |       +--- MONTE CRISTI
-           |-------+
-           |       |
-+----------+       +--- (BAORUCO, MARÍA TRINIDAD SÁNCHEZ, HERMANAS MIRABAL)
-|
-+----------------- INDEPENDENCIA
-```
+![](arbol-paso-5.jpg){width='40%'}
 
-- Conclusión
+###  Conclusión
 
 Este procedimiento de UPGMA nos permite agrupar las provincias en función de sus similitudes geomorfológicas basadas en la distancia euclidiana de sus características. Esto ayuda a identificar patrones de distribución de formas del terreno y a realizar análisis comparativos entre diferentes unidades territoriales.
-
 
 
 # ¿Cómo se haría el ejemplo práctico en R?

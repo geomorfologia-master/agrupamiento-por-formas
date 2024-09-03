@@ -3,7 +3,7 @@ predominantes<small><br>Geomorfología (GEO-114)<br>Universidad Autónoma
 de Santo Domingo (UASD)<br>Semestre 2024-02</small>
 ================
 El Tali
-2024-09-02
+2024-09-03
 
 Versión HTML (quizá más legible),
 [aquí](https://geomorfologia-master.github.io/agrupamiento-por-formas/README.html)
@@ -14,24 +14,17 @@ Versión HTML (quizá más legible),
 
 # Introducción
 
-<!-- Qué son los DEM, cómo se obtienen, y qué importancia tienen (puedes citar a @hengl2008geomorphometry). -->
-<!-- Qué son las técnicas de clasificación de formas del terreno (e.g. los geomórfonos), que se basan en DEM, citando a @hengl2008geomorphometry, @jasiewicz2013geomorphons -->
-<!-- Qué son las técnicas de análisis de agrupamiento (UPGMA, etc), qué utilidad tienen @borcard_numerical_2018, -->
-<!-- Una vez clasificados los elementos, cómo estas clasificaciones podrían ayudar a caracterizar más fácilmente y con técnicas estadísticas, unidades convencionales o físicas (@triola2012estadistica parte estadística). -->
-<!-- Utilidad de la clasificación del relieve, qué problema se resuelve con ellos. -->
-<!-- Cómo se pueden agrupar unidades como provincias, regiones o municipios, en función de la distribución porcentual de formas del terreno usando UPGMA, usando los datos de @jose_ramon_martinez_batlle_2022_7367180. -->
-<!-- Qué aportes dan para el conjunto de la ciencia. -->
-
-### Introducción
-
 Los Modelos Digitales de Elevación (DEM, por sus siglas en inglés) son
 representaciones digitales del relieve terrestre, obtenidas a partir de
 diversos métodos, como el levantamiento topográfico, la teledetección o
 el uso de sistemas de información geográfica (SIG) que permiten modelar
-la superficie del terreno en tres dimensiones. Los DEM son fundamentales
-en geomorfología y otras ciencias de la Tierra, ya que facilitan el
-análisis de formas del relieve y ayudan a identificar patrones
-geomorfológicos mediante técnicas cuantitativas (Hengl and Reuter 2008).
+la superficie del terreno en tres dimensiones, o permiten
+representaciones “2.5D” (superficie que tiene una apariencia
+tridimensional, pero en realidad no es un modelo 3D completo). Los DEM
+son fundamentales en geomorfología y otras ciencias de la Tierra, ya que
+facilitan el análisis de formas del relieve y ayudan a identificar
+patrones geomorfológicos mediante técnicas cuantitativas (Hengl and
+Reuter 2008).
 
 Las técnicas de clasificación de formas del terreno, como los
 geomórfonos, se basan en la información proporcionada por los DEM para
@@ -41,26 +34,83 @@ de la distribución espacial de las formas del terreno, proporcionando
 una base sólida para análisis más detallados en estudios geográficos y
 geológicos (Hengl and Reuter 2008; Jasiewicz and Stepinski 2013).
 
-El análisis de agrupamiento, como el método de agrupamiento jerárquico
-aglomerativo promedio no ponderado (UPGMA), se utiliza para clasificar
-elementos en grupos homogéneos en función de sus características,
-facilitando la identificación de patrones y relaciones entre diferentes
-unidades territoriales. Este método es útil en diversos campos, desde la
-biología hasta la geografía, para agrupar elementos con características
-similares (Borcard, Gillet, and Legendre 2018).
+El análisis de agrupamiento, que incluye muchos métodos, siendo uno muy
+usado el método de agrupamiento jerárquico aglomerativo promedio no
+ponderado o UPGMA (siglas en inglés de *Unweighted Pair Group Method
+with Arithmetic Mean*), se utiliza para clasificar elementos en grupos
+homogéneos en función de sus características, facilitando la
+identificación de patrones y relaciones entre diferentes unidades
+territoriales. Este método es útil en diversos campos, desde la biología
+hasta la geografía, para agrupar elementos con características similares
+(Borcard, Gillet, and Legendre 2018).
 
-Una vez clasificadas las unidades geomorfológicas, como provincias o
-regiones, estas clasificaciones pueden facilitar su caracterización
-mediante técnicas estadísticas, simplificando la comparación y el
-análisis de unidades convencionales o físicas (Triola 2012). La utilidad
-de estas clasificaciones radica en que permiten resolver problemas como
-la identificación de zonas vulnerables a desastres naturales, la
-planificación del uso del suelo y la conservación ambiental, entre
-otros. Por ejemplo, las provincias de la República Dominicana pueden
-agruparse según la distribución porcentual de formas del terreno
-utilizando el método UPGMA, lo que proporciona una perspectiva
-científica valiosa para diversos estudios geográficos y ambientales
-(Martínez-Batlle 2022).
+Dispones de la distribución porcentual de las formas del terreno por
+provincias, según lo publicado por Martínez-Batlle (2022). Las columnas
+de distribución porcentual son los atributos y las provincias las
+observaciones. Con esta caracterízación de las provincias según formas
+del terreno empleando técnicas de aprendizaje o clasificación, como el
+análisis de agrupamiento, puedes simplificar la comparación y el
+análisis de unidades convencionales o físicas.
+
+La utilidad de estas clasificaciones radica en que permiten caracterizar
+mejor, estadísticamente, las unidades de estudio (Triola 2012), y
+contribuyen a resolver problemas como la identificación de zonas
+vulnerables a desastres naturales, la planificación del uso del suelo y
+la conservación ambiental, entre otros. Por ejemplo, las provincias de
+la República Dominicana pueden agruparse según la distribución
+porcentual de formas del terreno utilizando el método UPGMA, lo que
+proporciona una perspectiva científica valiosa para diversos estudios
+geográficos y ambientales.
+
+Para realizar el análisis de agrupamiento, primero necesitamos definir
+una métrica de distancia que cuantifique la similitud o disimilitud
+entre las observaciones (en el ejemplo hipotético puesto en el párrafo
+anterior, serían provincias). Una métrica comúnmente utilizada es la
+**distancia euclidiana**, que para dos observaciones
+$\mathbf{x}_i = (x_{i1}, x_{i2}, \ldots, x_{iM})$ y
+$\mathbf{x}_j = (x_{j1}, x_{j2}, \ldots, x_{jM})$ se define como:
+
+$$
+d(\mathbf{x}_i, \mathbf{x}_j) = \sqrt{\sum_{k=1}^{M} (x_{ik} - x_{jk})^2}
+$$
+
+donde $x_{ik}$ y $x_{jk}$ son los valores de los atributos $k$ para las
+observaciones $i$ y $j$, respectivamente. Esta métrica permite calcular
+la distancia entre todas las combinaciones posibles de observaciones,
+generando una **matriz de distancias** de tamaño $N \times N$, donde $N$
+es el número de observaciones, aunque el número de observaciones únicas
+sería $\frac{N \times (N-1)}{2}$.
+
+Con esta matriz de distancias, podemos aplicar un algoritmo de
+agrupamiento jerárquico como el UPGMA, que forma grupos o “clusters” de
+observaciones similares siguiendo un enfoque aglomerativo. Este método
+comienza tratando cada observación como un cluster individual y, en cada
+paso, fusiona los dos clusters más cercanos según la distancia promedio
+entre todas las observaciones de los clusters. La distancia entre dos
+clusters $C_a$ y $C_b$ se calcula como:
+
+$$
+d(C_a, C_b) = \frac{1}{|C_a| |C_b|} \sum_{x_i \in C_a} \sum_{x_j \in C_b} d(x_i, x_j)
+$$
+
+donde $|C_a|$ y $|C_b|$ son los tamaños de los clusters $C_a$ y $C_b$, y
+$d(x_i, x_j)$ es la distancia entre las observaciones $x_i$ y $x_j$.
+
+Este proceso de fusión continúa hasta que todas las observaciones se
+agrupan en un único cluster, produciendo un dendrograma que visualiza la
+jerarquía de los agrupamientos. El dendrograma facilita la
+interpretación de los patrones de similitud entre las observaciones,
+permitiendo identificar agrupamientos naturales de provincias con
+características geomorfológicas similares.
+
+Al aplicar el método UPGMA a los datos de distribución porcentual de las
+formas del terreno, podemos descubrir patrones geoespaciales
+significativos, identificar unidades territoriales homogéneas y realizar
+análisis detallados de la estructura del relieve a nivel regional. Esta
+técnica permite simplificar la complejidad de los datos geográficos,
+brindando una herramienta poderosa para estudios ambientales,
+planificación del uso del suelo, y mitigación de riesgos asociados a
+fenómenos naturales.
 
 En resumen, las técnicas de clasificación y agrupamiento de formas del
 terreno no solo contribuyen a la ciencia al facilitar la comprensión del
@@ -80,8 +130,8 @@ terreno.
 
 ## Planteamiento del Problema
 
-Se dispone de un conjunto de datos de Martínez-Batlle (2022), que
-describe la distribución porcentual de las formas del terreno en
+Se dispone de un conjunto de datos generados por Martínez-Batlle (2022),
+que describe la distribución porcentual de las formas del terreno en
 diferentes provincias de la República Dominicana, basado en un modelo
 digital de elevación (DEM) y clasificaciones de formas del terreno
 usando geomórfonos (Jasiewicz and Stepinski 2013). Se busca utilizar
@@ -92,6 +142,10 @@ similitudes y diferencias entre las provincias, facilitando el análisis
 y la comprensión de los patrones del relieve a nivel regional.
 
 ## Obtención de los datos
+
+> En lo adelante, se incluyen varios bloques de código. En la versión
+> HTML, estos aparecen ocultos por defecto. Si deseas verlos, presiona
+> el botón `Show`.
 
 1.  Cargar datos fuente. Los datos fuente proceden de Martínez-Batlle
     (2022).
@@ -118,7 +172,8 @@ prov <- st_read('data/provincias-geomorfonos.gpkg', quiet = T) %>%
 # prov %>% st_drop_geometry() %>% select(-base, -nombre) %>% rowSums()
 ```
 
-Una representación cartográfica te ayudará a ver el conjunto en el país.
+Una representación cartográfica te ayudará a ver las distribuciones
+porcentuales a lo largo del país.
 
 ``` r
 prov %>% select(-matches('base')) %>%
@@ -144,8 +199,7 @@ prov %>% select(-matches('base')) %>%
 
 2.  **Creación de los 10 conjuntos** (reserva el conjunto 1 al Tali). Se
     han creado diez conjuntos de seis provincias elegidas al azar
-    utilizando sus nombres con el siguiente código de R (si no lo ves,
-    presiona el botón `Show`).
+    utilizando sus nombres.
 
 ``` r
 set.seed(123)
@@ -172,7 +226,8 @@ df %>%
 3.  **Presentación de los datos crudos de cada uno de los diez
     conjuntos**. Esta matriz contiene el porcentaje de la superifice
     provincial ocupada por cada forma del terreno. Con esta matriz
-    podrás hacer cálculos de distancias.
+    podrás hacer un cálculo de distancia (parte 1 del mandato, que verás
+    en la siguiente sección).
 
 ``` r
 conjuntos_l <- sapply(1:ncol(replicas),
@@ -311,153 +366,167 @@ Conjunto 10
 
 4.  **Generación de la matriz de distancias de cada uno de los diez
     conjuntos**. Esta es la matriz de distancias con la que podrás
-    realizar el agrupamiento jerárquico UPGMA, y podrás comprobar tus
-    cálculos de distancias seleccionados.
+    realizar el agrupamiento jerárquico UPGMA (parte 2 del mandato, que
+    verás en la siguiente sección).
 
 ``` r
 # Mostrar las matrices de distancia
 print(sapply(
   conjuntos_l,
-  function(x)
-    x %>% as.data.frame() %>% column_to_rownames('nombre') %>% dist,
-  simplify = F),
-  digits = 2)
+  function(x) {
+    x %>%
+      as.data.frame() %>%
+      column_to_rownames('nombre') %>%
+      dist(diag = T, upper = T) %>% 
+      as.matrix() %>% 
+      as.data.frame() %>% 
+      knitr::kable(digits = 2, align = 'c')
+  },
+  simplify = F))
 ```
 
-    ## $`Conjunto 1`
-    ##                        BAORUCO INDEPENDENCIA MARÍA TRINIDAD SÁNCHEZ
-    ## INDEPENDENCIA             10.7                                     
-    ## MARÍA TRINIDAD SÁNCHEZ     9.4          18.9                       
-    ## MONTE CRISTI              20.4          30.0                   12.9
-    ## HERMANAS MIRABAL          10.5          14.4                   12.2
-    ## SAN JOSÉ DE OCOA          30.1          24.0                   36.7
-    ##                        MONTE CRISTI HERMANAS MIRABAL
-    ## INDEPENDENCIA                                       
-    ## MARÍA TRINIDAD SÁNCHEZ                              
-    ## MONTE CRISTI                                        
-    ## HERMANAS MIRABAL               25.0                 
-    ## SAN JOSÉ DE OCOA               49.3             25.3
-    ## 
-    ## $`Conjunto 2`
-    ##                        DAJABÓN LA ALTAGRACIA MARÍA TRINIDAD SÁNCHEZ
-    ## LA ALTAGRACIA             48.4                                     
-    ## MARÍA TRINIDAD SÁNCHEZ    22.6          25.9                       
-    ## PUERTO PLATA               5.7          52.6                   26.8
-    ## SAMANÁ                     6.1          44.8                   19.2
-    ## SAN JUAN                   6.7          53.7                   28.0
-    ##                        PUERTO PLATA SAMANÁ
-    ## LA ALTAGRACIA                             
-    ## MARÍA TRINIDAD SÁNCHEZ                    
-    ## PUERTO PLATA                              
-    ## SAMANÁ                          9.4       
-    ## SAN JUAN                        2.8   11.1
-    ## 
-    ## $`Conjunto 3`
-    ##                    DAJABÓN HERMANAS MIRABAL SAN JUAN SANTIAGO
-    ## HERMANAS MIRABAL      11.6                                   
-    ## SAN JUAN               6.7             17.7                  
-    ## SANTIAGO               9.0             19.4      5.9         
-    ## SANTIAGO RODRÍGUEZ    12.3             22.2     10.1      5.1
-    ## VALVERDE              18.3             10.5     23.4     27.0
-    ##                    SANTIAGO RODRÍGUEZ
-    ## HERMANAS MIRABAL                     
-    ## SAN JUAN                             
-    ## SANTIAGO                             
-    ## SANTIAGO RODRÍGUEZ                   
-    ## VALVERDE                         30.5
-    ## 
-    ## $`Conjunto 4`
-    ##                  BAORUCO ESPAILLAT SANTIAGO VALVERDE MONSEÑOR NOUEL
-    ## ESPAILLAT           19.2                                           
-    ## SANTIAGO            24.4       9.2                                 
-    ## VALVERDE             7.8      20.6     27.0                        
-    ## MONSEÑOR NOUEL      19.5       7.2      5.1     22.3               
-    ## SAN JOSÉ DE OCOA    30.1      14.7      6.2     33.1           10.9
-    ## 
-    ## $`Conjunto 5`
-    ##                    ELÍAS PIÑA EL SEIBO ESPAILLAT INDEPENDENCIA HERMANAS MIRABAL
-    ## EL SEIBO                 19.1                                                  
-    ## ESPAILLAT                15.1      7.1                                         
-    ## INDEPENDENCIA            22.6     13.1      16.6                               
-    ## HERMANAS MIRABAL         25.5      8.3      11.4          14.4                 
-    ## SANTIAGO RODRÍGUEZ        6.0     16.1      11.0          22.8             22.2
-    ## 
-    ## $`Conjunto 6`
-    ##                        BARAHONA ELÍAS PIÑA LA ALTAGRACIA MARÍA TRINIDAD SÁNCHEZ
-    ## ELÍAS PIÑA                 12.4                                                
-    ## LA ALTAGRACIA              51.4       62.5                                     
-    ## MARÍA TRINIDAD SÁNCHEZ     26.0       36.7          25.9                       
-    ## PERAVIA                     9.9       19.0          43.8                   18.0
-    ## SAN CRISTÓBAL               9.6        7.3          56.1                   30.4
-    ##                        PERAVIA
-    ## ELÍAS PIÑA                    
-    ## LA ALTAGRACIA                 
-    ## MARÍA TRINIDAD SÁNCHEZ        
-    ## PERAVIA                       
-    ## SAN CRISTÓBAL             12.7
-    ## 
-    ## $`Conjunto 7`
-    ##               ELÍAS PIÑA ESPAILLAT INDEPENDENCIA LA ROMANA LA VEGA
-    ## ESPAILLAT           15.1                                          
-    ## INDEPENDENCIA       22.6      16.6                                
-    ## LA ROMANA           67.0      53.3          48.0                  
-    ## LA VEGA             16.1       5.8          14.1      51.8        
-    ## MONTE CRISTI        49.4      36.3          30.0      18.3    34.5
-    ## 
-    ## $`Conjunto 8`
-    ##                      ESPAILLAT INDEPENDENCIA SAN CRISTÓBAL SAN PEDRO DE MACORÍS
-    ## INDEPENDENCIA             16.6                                                 
-    ## SAN CRISTÓBAL              8.1          19.1                                   
-    ## SAN PEDRO DE MACORÍS      64.0          58.2          71.2                     
-    ## VALVERDE                  20.6          14.1          26.7                 46.3
-    ## MONSEÑOR NOUEL             7.2          14.2           5.7                 66.8
-    ##                      VALVERDE
-    ## INDEPENDENCIA                
-    ## SAN CRISTÓBAL                
-    ## SAN PEDRO DE MACORÍS         
-    ## VALVERDE                     
-    ## MONSEÑOR NOUEL           22.3
-    ## 
-    ## $`Conjunto 9`
-    ##               AZUA DUARTE ELÍAS PIÑA SAN CRISTÓBAL SANTIAGO
-    ## DUARTE        40.9                                         
-    ## ELÍAS PIÑA     8.8   49.1                                  
-    ## SAN CRISTÓBAL  5.5   42.6        7.3                       
-    ## SANTIAGO       4.5   42.9        6.5           2.1         
-    ## VALVERDE      24.1   20.3       32.6          26.7     27.0
-    ## 
-    ## $`Conjunto 10`
-    ##              DAJABÓN EL SEIBO LA ROMANA LA VEGA PUERTO PLATA
-    ## EL SEIBO         5.1                                        
-    ## LA ROMANA       52.7     48.9                               
-    ## LA VEGA          6.6      9.2      51.8                     
-    ## PUERTO PLATA     5.7     10.4      57.2     8.7             
-    ## MONTE PLATA     10.1      6.4      46.0    10.9         15.2
+\$`Conjunto 1`
+
+|                        | BAORUCO | INDEPENDENCIA | MARÍA TRINIDAD SÁNCHEZ | MONTE CRISTI | HERMANAS MIRABAL | SAN JOSÉ DE OCOA |
+|:-----------------------|:-------:|:-------------:|:----------------------:|:------------:|:----------------:|:----------------:|
+| BAORUCO                |  0.00   |     10.75     |          9.36          |    20.37     |      10.46       |      30.12       |
+| INDEPENDENCIA          |  10.75  |     0.00      |         18.93          |    30.03     |      14.36       |      23.96       |
+| MARÍA TRINIDAD SÁNCHEZ |  9.36   |     18.93     |          0.00          |    12.94     |      12.20       |      36.68       |
+| MONTE CRISTI           |  20.37  |     30.03     |         12.94          |     0.00     |      24.96       |      49.34       |
+| HERMANAS MIRABAL       |  10.46  |     14.36     |         12.20          |    24.96     |       0.00       |      25.27       |
+| SAN JOSÉ DE OCOA       |  30.12  |     23.96     |         36.68          |    49.34     |      25.27       |       0.00       |
+
+\$`Conjunto 2`
+
+|                        | DAJABÓN | LA ALTAGRACIA | MARÍA TRINIDAD SÁNCHEZ | PUERTO PLATA | SAMANÁ | SAN JUAN |
+|:-----------------------|:-------:|:-------------:|:----------------------:|:------------:|:------:|:--------:|
+| DAJABÓN                |  0.00   |     48.39     |         22.58          |     5.68     |  6.06  |   6.66   |
+| LA ALTAGRACIA          |  48.39  |     0.00      |         25.91          |    52.58     | 44.84  |  53.65   |
+| MARÍA TRINIDAD SÁNCHEZ |  22.58  |     25.91     |          0.00          |    26.80     | 19.18  |  28.02   |
+| PUERTO PLATA           |  5.68   |     52.58     |         26.80          |     0.00     |  9.39  |   2.75   |
+| SAMANÁ                 |  6.06   |     44.84     |         19.18          |     9.39     |  0.00  |  11.15   |
+| SAN JUAN               |  6.66   |     53.65     |         28.02          |     2.75     | 11.15  |   0.00   |
+
+\$`Conjunto 3`
+
+|                    | DAJABÓN | HERMANAS MIRABAL | SAN JUAN | SANTIAGO | SANTIAGO RODRÍGUEZ | VALVERDE |
+|:-------------------|:-------:|:----------------:|:--------:|:--------:|:------------------:|:--------:|
+| DAJABÓN            |  0.00   |      11.55       |   6.66   |   9.04   |       12.32        |  18.29   |
+| HERMANAS MIRABAL   |  11.55  |       0.00       |  17.71   |  19.39   |       22.23        |  10.54   |
+| SAN JUAN           |  6.66   |      17.71       |   0.00   |   5.87   |       10.11        |  23.42   |
+| SANTIAGO           |  9.04   |      19.39       |   5.87   |   0.00   |        5.08        |  27.03   |
+| SANTIAGO RODRÍGUEZ |  12.32  |      22.23       |  10.11   |   5.08   |        0.00        |  30.46   |
+| VALVERDE           |  18.29  |      10.54       |  23.42   |  27.03   |       30.46        |   0.00   |
+
+\$`Conjunto 4`
+
+|                  | BAORUCO | ESPAILLAT | SANTIAGO | VALVERDE | MONSEÑOR NOUEL | SAN JOSÉ DE OCOA |
+|:-----------------|:-------:|:---------:|:--------:|:--------:|:--------------:|:----------------:|
+| BAORUCO          |  0.00   |   19.16   |  24.42   |   7.84   |     19.49      |      30.12       |
+| ESPAILLAT        |  19.16  |   0.00    |   9.17   |  20.59   |      7.23      |      14.67       |
+| SANTIAGO         |  24.42  |   9.17    |   0.00   |  27.03   |      5.14      |       6.19       |
+| VALVERDE         |  7.84   |   20.59   |  27.03   |   0.00   |     22.28      |      33.12       |
+| MONSEÑOR NOUEL   |  19.49  |   7.23    |   5.14   |  22.28   |      0.00      |      10.91       |
+| SAN JOSÉ DE OCOA |  30.12  |   14.67   |   6.19   |  33.12   |     10.91      |       0.00       |
+
+\$`Conjunto 5`
+
+|                    | ELÍAS PIÑA | EL SEIBO | ESPAILLAT | INDEPENDENCIA | HERMANAS MIRABAL | SANTIAGO RODRÍGUEZ |
+|:-------------------|:----------:|:--------:|:---------:|:-------------:|:----------------:|:------------------:|
+| ELÍAS PIÑA         |    0.00    |  19.15   |   15.07   |     22.63     |      25.50       |        5.97        |
+| EL SEIBO           |   19.15    |   0.00   |   7.13    |     13.12     |       8.31       |       16.13        |
+| ESPAILLAT          |   15.07    |   7.13   |   0.00    |     16.63     |      11.43       |       10.97        |
+| INDEPENDENCIA      |   22.63    |  13.12   |   16.63   |     0.00      |      14.36       |       22.84        |
+| HERMANAS MIRABAL   |   25.50    |   8.31   |   11.43   |     14.36     |       0.00       |       22.23        |
+| SANTIAGO RODRÍGUEZ |    5.97    |  16.13   |   10.97   |     22.84     |      22.23       |        0.00        |
+
+\$`Conjunto 6`
+
+|                        | BARAHONA | ELÍAS PIÑA | LA ALTAGRACIA | MARÍA TRINIDAD SÁNCHEZ | PERAVIA | SAN CRISTÓBAL |
+|:-----------------------|:--------:|:----------:|:-------------:|:----------------------:|:-------:|:-------------:|
+| BARAHONA               |   0.00   |   12.36    |     51.39     |         26.01          |  9.91   |     9.62      |
+| ELÍAS PIÑA             |  12.36   |    0.00    |     62.46     |         36.70          |  18.97  |     7.27      |
+| LA ALTAGRACIA          |  51.39   |   62.46    |     0.00      |         25.91          |  43.76  |     56.14     |
+| MARÍA TRINIDAD SÁNCHEZ |  26.01   |   36.70    |     25.91     |          0.00          |  18.01  |     30.42     |
+| PERAVIA                |   9.91   |   18.97    |     43.76     |         18.01          |  0.00   |     12.72     |
+| SAN CRISTÓBAL          |   9.62   |    7.27    |     56.14     |         30.42          |  12.72  |     0.00      |
+
+\$`Conjunto 7`
+
+|               | ELÍAS PIÑA | ESPAILLAT | INDEPENDENCIA | LA ROMANA | LA VEGA | MONTE CRISTI |
+|:--------------|:----------:|:---------:|:-------------:|:---------:|:-------:|:------------:|
+| ELÍAS PIÑA    |    0.00    |   15.07   |     22.63     |   67.02   |  16.06  |    49.42     |
+| ESPAILLAT     |   15.07    |   0.00    |     16.63     |   53.26   |  5.82   |    36.31     |
+| INDEPENDENCIA |   22.63    |   16.63   |     0.00      |   47.97   |  14.06  |    30.03     |
+| LA ROMANA     |   67.02    |   53.26   |     47.97     |   0.00    |  51.81  |    18.27     |
+| LA VEGA       |   16.06    |   5.82    |     14.06     |   51.81   |  0.00   |    34.48     |
+| MONTE CRISTI  |   49.42    |   36.31   |     30.03     |   18.27   |  34.48  |     0.00     |
+
+\$`Conjunto 8`
+
+|                      | ESPAILLAT | INDEPENDENCIA | SAN CRISTÓBAL | SAN PEDRO DE MACORÍS | VALVERDE | MONSEÑOR NOUEL |
+|:---------------------|:---------:|:-------------:|:-------------:|:--------------------:|:--------:|:--------------:|
+| ESPAILLAT            |   0.00    |     16.63     |     8.07      |        63.96         |  20.59   |      7.23      |
+| INDEPENDENCIA        |   16.63   |     0.00      |     19.06     |        58.23         |  14.07   |     14.21      |
+| SAN CRISTÓBAL        |   8.07    |     19.06     |     0.00      |        71.20         |  26.73   |      5.66      |
+| SAN PEDRO DE MACORÍS |   63.96   |     58.23     |     71.20     |         0.00         |  46.32   |     66.76      |
+| VALVERDE             |   20.59   |     14.07     |     26.73     |        46.32         |   0.00   |     22.28      |
+| MONSEÑOR NOUEL       |   7.23    |     14.21     |     5.66      |        66.76         |  22.28   |      0.00      |
+
+\$`Conjunto 9`
+
+|               | AZUA  | DUARTE | ELÍAS PIÑA | SAN CRISTÓBAL | SANTIAGO | VALVERDE |
+|:--------------|:-----:|:------:|:----------:|:-------------:|:--------:|:--------:|
+| AZUA          | 0.00  | 40.86  |    8.77    |     5.54      |   4.46   |  24.06   |
+| DUARTE        | 40.86 |  0.00  |   49.09    |     42.61     |  42.92   |  20.35   |
+| ELÍAS PIÑA    | 8.77  | 49.09  |    0.00    |     7.27      |   6.46   |  32.56   |
+| SAN CRISTÓBAL | 5.54  | 42.61  |    7.27    |     0.00      |   2.11   |  26.73   |
+| SANTIAGO      | 4.46  | 42.92  |    6.46    |     2.11      |   0.00   |  27.03   |
+| VALVERDE      | 24.06 | 20.35  |   32.56    |     26.73     |  27.03   |   0.00   |
+
+\$`Conjunto 10`
+
+|              | DAJABÓN | EL SEIBO | LA ROMANA | LA VEGA | PUERTO PLATA | MONTE PLATA |
+|:-------------|:-------:|:--------:|:---------:|:-------:|:------------:|:-----------:|
+| DAJABÓN      |  0.00   |   5.07   |   52.74   |  6.62   |     5.68     |    10.13    |
+| EL SEIBO     |  5.07   |   0.00   |   48.93   |  9.19   |    10.36     |    6.41     |
+| LA ROMANA    |  52.74  |  48.93   |   0.00    |  51.81  |    57.20     |    46.04    |
+| LA VEGA      |  6.62   |   9.19   |   51.81   |  0.00   |     8.65     |    10.89    |
+| PUERTO PLATA |  5.68   |  10.36   |   57.20   |  8.65   |     0.00     |    15.18    |
+| MONTE PLATA  |  10.13  |   6.41   |   46.04   |  10.89  |    15.18     |    0.00     |
 
 ## **Mandato**.
 
 > Ten presente un aspecto importante. El Tali te provee la matriz de
-> distancias entre los 15 pares posibles para que realices el
-> agrupamiento. Sin embargo, el Tali también te pide, en el punto 1.
-> que, a modo de prueba, calcules la distancia euclidiana para dos pares
-> de provincias elegidos al azar de entre los 15 posibles. Más detalles
-> abajo.
+> distancias para que realices el agrupamiento (parte 2 de este
+> mandato). Sin embargo, el Tali también te pide, en la parte 1 de este
+> mandato que, a modo de prueba, calcules la distancia euclidiana para
+> dos pares de provincias elegidos al azar de entre los 15 posibles.
+> Esto tiene por objetivo que puedas medir tu rendimiento en el cálculo
+> de distancias en un espacio n-dimensional.
 
-1.  Usando los datos generados a partir de Martínez-Batlle (2022), para
-    el conjunto que te tocó, obtén la distancia euclidiana entre un par
-    de provincias elegidos por ti al azar; es decir, un par de entre los
-    15 posibles que tiene tu matriz de distancias. Haz este cálculo
-    usando todas las dimensiones disponibles (diez en total). Ten
-    presente que, para incluir las diez dimensiones, deberás usar la
-    fórmula provista, la cual considera un espacio n-dimensional. Es
+1.  Usando los datos generados por Martínez-Batlle (2022), para el
+    conjunto que te tocó (recuerda reservar el conjunto 1 al Tali),
+    obtén la distancia euclidiana entre un par de provincias elegidas
+    por ti al azar (tienes que analizar 6 provincias, elige un par al
+    azar). Haz este cálculo usando todas las dimensiones (atributos)
+    disponibles (diez en total). Ten presente que, para incluir las diez
+    dimensiones, deberás usar la fórmula generalizada de la distancia
+    que verás en el ejemplo práctico, la cual considera un espacio
+    n-dimensional (es decir, sumando los cuadrados de las diferencias
+    entre sus coordenadas correspondientes en cada una de las diez
+    dimensiones, y tomando la raíz cuadrada del resultado). Esta parte
+    del ejercicio tiene triple propósito: a) Verificar tu rendimiento
+    para calcular distancias en un espacio n-dimensional, donde n\>3; b)
+    Comprobar la precisión del algoritmo distancias; c) Medir tu
+    rendimiento calculando distancias en un n-dimensional. Es
     recomendable que, para los cálculos, redondees a dos cifras
-    significativas. Esto tiene doble propósito: a) Comprobar la
-    precisión del algoritmo distancias; b) Medir tu rendimiento
-    calculando distancias en un n-dimensional.
+    significativas. Verifica que tu cálculo da próximo al generado en la
+    matriz de distancias.
 
 2.  Aplica el método de agrupamiento jerárquico aglomerativo promedio no
     ponderado (UPGMA) para agrupar las provincias según sus formas
-    predominantes, usando la matriz de distancias provista.
+    predominantes, usando la matriz de distancias provista arriba.
 
 3.  Redacta, en un máximo de cuatro párrafos, lo siguiente:
 
@@ -473,9 +542,7 @@ print(sapply(
 
 # Ejemplo práctico
 
-En el aula.
-
-1.  Calcular distancia entre dos provincias.
+## Parte 1. Calcular distancia entre dos provincias.
 
 Para calcular la distancia entre dos provincias cualquiera utilizando
 las diez dimensiones proporcionadas (las columnas de distribución
@@ -533,7 +600,7 @@ Esta distancia representa la magnitud de la diferencia en la
 distribución de formas del terreno entre las dos provincias
 consideradas.
 
-2.  Aplicar el método UPGMA
+## Parte 2. Aplicar el método UPGMA
 
 Para realizar un agrupamiento jerárquico utilizando el método de
 agrupamiento jerárquico aglomerativo promedio no ponderado (UPGMA),
@@ -547,9 +614,9 @@ vínculo simple, no en el promedio; es decir, ella, en lugar de obtener
 promedios a la hora de recalcular la matriz de distancias, lo que
 obtiene son valores mínimos, pero en nuestro casos serían promedios.
 
-- Matriz de Distancias Inicial
+### Matriz de Distancias Inicial
 
-Dado el conjunto de datos:
+Dado el conjunto de datos del Conjunto 1:
 
 |                            | BAORUCO | INDEPENDENCIA | MARÍA TRINIDAD SÁNCHEZ | MONTE CRISTI | HERMANAS MIRABAL | SAN JOSÉ DE OCOA |
 |----------------------------|---------|---------------|------------------------|--------------|------------------|------------------|
@@ -559,15 +626,17 @@ Dado el conjunto de datos:
 | **HERMANAS MIRABAL**       | 10.5    | 14.4          | 12.2                   | 25.0         |                  |                  |
 | **SAN JOSÉ DE OCOA**       | 30.1    | 24.0          | 36.7                   | 49.3         | 25.3             |                  |
 
-- Paso 1: Encuentra el par con la distancia más pequeña
+### Paso 1: Encuentra el par con la distancia más pequeña
 
 - El par con la distancia más pequeña es **BAORUCO** y **MARÍA TRINIDAD
-  SÁNCHEZ** con una distancia de 9.4.
+  SÁNCHEZ** con una distancia de 9.4. Este par forma el primer grupo.
 
-- Paso 2: Agrupa los elementos más cercanos
+### Paso 2: Agrupa los elementos más cercanos
 
 - Agrupamos **BAORUCO** y **MARÍA TRINIDAD SÁNCHEZ** en un nuevo cluster
   (B-MTS).
+
+<img src="arbol-paso-1.jpg" style="width:40.0%" />
 
 - Calculamos la distancia entre este nuevo cluster (B-MTS) y los otros
   elementos utilizando el promedio de las distancias:
@@ -598,15 +667,17 @@ $$
 | **HERMANAS MIRABAL** | 11.35 | 14.4          | 25.0         |                  | 25.3             |
 | **SAN JOSÉ DE OCOA** | 33.4  | 24.0          | 49.3         | 25.3             |                  |
 
-- Paso 3: Encuentra el Siguiente Par con la Distancia más Pequeña
+### Paso 3: Encuentra el Siguiente Par con la Distancia más Pequeña
 
 - El par con la distancia más pequeña es **B-MTS** y **HERMANAS
   MIRABAL** con una distancia de 11.35.
 
-- Paso 4: Agrupa el Nuevo Cluster
+### Paso 4: Agrupa el Nuevo Cluster
 
 - Agrupamos **B-MTS** y **HERMANAS MIRABAL** en un nuevo cluster
   (B-MTS-HM).
+
+<img src="arbol-paso-2.jpg" style="width:40.0%" />
 
 - Calculamos la distancia entre el nuevo cluster (B-MTS-HM) y los otros
   elementos:
@@ -632,28 +703,25 @@ $$
 | **MONTE CRISTI**     | 20.825   | 30.0          |              | 49.3             |
 | **SAN JOSÉ DE OCOA** | 29.35    | 24.0          | 49.3         |                  |
 
-- Paso 5: Repite el Proceso Hasta Que Todos los Elementos Sean Agrupados
+### Paso 5: Repite el Proceso Hasta Que Todos los Elementos Sean Agrupados
 
 1.  Agrupa **B-MTS-HM** y **INDEPENDENCIA** (distancia de 14.6).
+
+<img src="arbol-paso-3.jpg" style="width:40.0%" />
 
 2.  Continúa agrupando siguiendo el mismo proceso iterativo hasta que
     todas las provincias estén en un solo cluster.
 
-- Dendrograma
+<img src="arbol-paso-4.jpg" style="width:40.0%" />
+
+### Dendrograma
 
 El resultado final de este proceso se puede representar mediante un
 dendrograma, que muestra la estructura jerárquica de los agrupamientos:
 
-               +--------- SAN JOSÉ DE OCOA
-               |
-               |       +--- MONTE CRISTI
-               |-------+
-               |       |
-    +----------+       +--- (BAORUCO, MARÍA TRINIDAD SÁNCHEZ, HERMANAS MIRABAL)
-    |
-    +----------------- INDEPENDENCIA
+<img src="arbol-paso-5.jpg" style="width:40.0%" />
 
-- Conclusión
+### Conclusión
 
 Este procedimiento de UPGMA nos permite agrupar las provincias en
 función de sus similitudes geomorfológicas basadas en la distancia
