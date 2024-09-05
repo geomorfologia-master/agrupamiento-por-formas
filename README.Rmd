@@ -382,11 +382,32 @@ El resultado final de este proceso se puede representar mediante un dendrograma,
 
 Este procedimiento de UPGMA nos permite agrupar las provincias en función de sus similitudes geomorfológicas basadas en la distancia euclidiana de sus características. Esto ayuda a identificar patrones de distribución de formas del terreno y a realizar análisis comparativos entre diferentes unidades territoriales.
 
+# ¿Cómo se haría el ejemplo práctico y cómo se ven todos los árboles en R?
 
-# ¿Cómo se haría el ejemplo práctico en R?
+- El ejemplo práctico
 
 ```{r, eval = F, echo = T}
+conjuntos_l_1 <- conjuntos_l[[1]]
+dist_conj_1 <- conjuntos_l_1 %>%
+  as.data.frame() %>%
+  column_to_rownames('nombre') %>%
+  dist(diag = T, upper = T)
+conj_1_upgma <- hclust(dist_conj_1, method = 'average')
+plot(conj_1_upgma)
+```
 
+- Todos
+
+```{r, eval=T, out.width='75%'}
+invisible(sapply(names(conjuntos_l),
+       function(x) {
+         d <- conjuntos_l[[x]] %>% 
+           as.data.frame() %>%
+           column_to_rownames('nombre') %>%
+           dist(diag = T, upper = T)
+         u <- hclust(d, method = 'average')
+         plot(u, main = x)
+       }))
 ```
 
 **Nota**: los cálculos se pueden realizar a mano o con una calculadora del teléfono, utilizando las fórmulas proporcionadas.

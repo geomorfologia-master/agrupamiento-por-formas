@@ -3,7 +3,7 @@ predominantes<small><br>Geomorfología (GEO-114)<br>Universidad Autónoma
 de Santo Domingo (UASD)<br>Semestre 2024-02</small>
 ================
 El Tali
-2024-09-03
+2024-09-05
 
 Versión HTML (quizá más legible),
 [aquí](https://geomorfologia-master.github.io/agrupamiento-por-formas/README.html)
@@ -729,7 +729,35 @@ euclidiana de sus características. Esto ayuda a identificar patrones de
 distribución de formas del terreno y a realizar análisis comparativos
 entre diferentes unidades territoriales.
 
-# ¿Cómo se haría el ejemplo práctico en R?
+# ¿Cómo se haría el ejemplo práctico y cómo se ven todos los árboles en R?
+
+- El ejemplo práctico
+
+``` r
+conjuntos_l_1 <- conjuntos_l[[1]]
+dist_conj_1 <- conjuntos_l_1 %>%
+  as.data.frame() %>%
+  column_to_rownames('nombre') %>%
+  dist(diag = T, upper = T)
+conj_1_upgma <- hclust(dist_conj_1, method = 'average')
+plot(conj_1_upgma)
+```
+
+- Todos
+
+``` r
+invisible(sapply(names(conjuntos_l),
+       function(x) {
+         d <- conjuntos_l[[x]] %>% 
+           as.data.frame() %>%
+           column_to_rownames('nombre') %>%
+           dist(diag = T, upper = T)
+         u <- hclust(d, method = 'average')
+         plot(u, main = x)
+       }))
+```
+
+<img src="README_files/figure-gfm/unnamed-chunk-12-1.png" width="75%" /><img src="README_files/figure-gfm/unnamed-chunk-12-2.png" width="75%" /><img src="README_files/figure-gfm/unnamed-chunk-12-3.png" width="75%" /><img src="README_files/figure-gfm/unnamed-chunk-12-4.png" width="75%" /><img src="README_files/figure-gfm/unnamed-chunk-12-5.png" width="75%" /><img src="README_files/figure-gfm/unnamed-chunk-12-6.png" width="75%" /><img src="README_files/figure-gfm/unnamed-chunk-12-7.png" width="75%" /><img src="README_files/figure-gfm/unnamed-chunk-12-8.png" width="75%" /><img src="README_files/figure-gfm/unnamed-chunk-12-9.png" width="75%" /><img src="README_files/figure-gfm/unnamed-chunk-12-10.png" width="75%" />
 
 **Nota**: los cálculos se pueden realizar a mano o con una calculadora
 del teléfono, utilizando las fórmulas proporcionadas.
