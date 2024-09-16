@@ -1,9 +1,9 @@
-Prácticas de aula 3 (PA03). Agrupar provincias según su formas
+Prácticas de aula 3 (PA03). Agrupar provincias según sus formas
 predominantes<small><br>Geomorfología (GEO-114)<br>Universidad Autónoma
 de Santo Domingo (UASD)<br>Semestre 2024-02</small>
 ================
 El Tali
-2024-09-05
+2024-09-16
 
 Versión HTML (quizá más legible),
 [aquí](https://geomorfologia-master.github.io/agrupamiento-por-formas/README.html)

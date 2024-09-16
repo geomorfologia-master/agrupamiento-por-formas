@@ -1,5 +1,5 @@
 ---
-title: "Prácticas de aula 3 (PA03). Agrupar provincias según su formas predominantes<small><br>Geomorfología (GEO-114)<br>Universidad Autónoma de Santo Domingo (UASD)<br>Semestre 2024-02</small>"
+title: "Prácticas de aula 3 (PA03). Agrupar provincias según sus formas predominantes<small><br>Geomorfología (GEO-114)<br>Universidad Autónoma de Santo Domingo (UASD)<br>Semestre 2024-02</small>"
 author: "El Tali"
 date: "`r format(Sys.Date(), '%Y-%m-%d')`"
 output:
