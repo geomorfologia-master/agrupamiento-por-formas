@@ -1,16 +1,16 @@
 Prácticas de aula 3 (PA03). Agrupar provincias según sus formas
 predominantes<small><br>Geomorfología (GEO-114)<br>Universidad Autónoma
-de Santo Domingo (UASD)<br>Semestre 2024-02</small>
+de Santo Domingo (UASD)<br>Semestre 2025-01</small>
 ================
 El Tali
-2024-09-16
+2025-02-24
 
 Versión HTML (quizá más legible),
 [aquí](https://geomorfologia-master.github.io/agrupamiento-por-formas/README.html)
 
 # Fecha/hora de entrega
 
-**03 de septiembre de 2024, 7:59 pm.**
+**02 de marzo de 2025, 11:59 pm.**
 
 # Introducción
 
