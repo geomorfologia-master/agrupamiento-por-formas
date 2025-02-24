@@ -10,7 +10,8 @@ Versión HTML (quizá más legible),
 
 # Fecha/hora de entrega
 
-**02 de marzo de 2025, 11:59 pm.**
+**[VER PORTAL DE LA
+ASIGNATURA](https://github.com/geomorfologia-202501)**
 
 # Introducción
 
