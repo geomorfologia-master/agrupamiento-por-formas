@@ -266,7 +266,7 @@ La distancia euclidiana entre las provincias **BAORUCO** e **INDEPENDENCIA** es 
 
 ## Parte 2. Aplicar el método UPGMA
 
-Para realizar un agrupamiento jerárquico utilizando el método de agrupamiento jerárquico aglomerativo promedio no ponderado (UPGMA), seguimos un enfoque iterativo que consiste en agrupar los pares de elementos o clusters más cercanos hasta que todos los elementos estén en un único cluster. UPGMA utiliza las distancias promedio entre todos los miembros de los clusters para calcular la distancia entre clusters. [Este vídeo](https://www.youtube.com/watch?v=RdT7bhm1M3E) también podría resultarte útil, aunque en el vídeo, la instructora se basa en el vínculo simple, no en el promedio; es decir, ella, en lugar de obtener promedios a la hora de recalcular la matriz de distancias, lo que obtiene son valores mínimos, pero en nuestro casos serían promedios.
+Para realizar un agrupamiento jerárquico utilizando el método de agrupamiento jerárquico aglomerativo promedio no ponderado (UPGMA), seguimos un enfoque iterativo que consiste en agrupar los pares de elementos o clusters más cercanos hasta que todos los elementos estén en un único cluster. UPGMA utiliza las distancias promedio entre todos los miembros de los clusters para calcular la distancia entre clusters. [Este vídeo](https://www.youtube.com/watch?v=T1ObCUpjq3o) también podría resultarte útil, aunque en el vídeo, la instructora se basa en el vínculo simple, no en el promedio; es decir, ella, en lugar de obtener promedios a la hora de recalcular la matriz de distancias, lo que obtiene son valores mínimos, pero en nuestro casos serían promedios.
 
 ```{r, echo=F, include=F}
 conjuntos_l_1 <- conjuntos_l[[1]]

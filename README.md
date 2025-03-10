@@ -3,7 +3,7 @@ predominantes<small><br>Geomorfología (GEO-114)<br>Universidad Autónoma
 de Santo Domingo (UASD)<br>Semestre 2025-01</small>
 ================
 El Tali
-2025-02-24
+2025-03-10
 
 Versión HTML (quizá más legible),
 [aquí](https://geomorfologia-master.github.io/agrupamiento-por-formas/README.html)
@@ -609,7 +609,7 @@ seguimos un enfoque iterativo que consiste en agrupar los pares de
 elementos o clusters más cercanos hasta que todos los elementos estén en
 un único cluster. UPGMA utiliza las distancias promedio entre todos los
 miembros de los clusters para calcular la distancia entre clusters.
-[Este vídeo](https://www.youtube.com/watch?v=RdT7bhm1M3E) también podría
+[Este vídeo](https://www.youtube.com/watch?v=T1ObCUpjq3o) también podría
 resultarte útil, aunque en el vídeo, la instructora se basa en el
 vínculo simple, no en el promedio; es decir, ella, en lugar de obtener
 promedios a la hora de recalcular la matriz de distancias, lo que
